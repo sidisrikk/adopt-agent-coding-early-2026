@@ -58,7 +58,7 @@ This document organizes key resources for agentic coding, AI skills, and collabo
 
 - JS Boundaries is a project that provides a set of tools to help you enforce architectural boundaries in your JavaScript and TypeScript projects.
 - folder structure guidelines .md both frontend and backend
-- domain-driven hexagonal architecture
+- domain-driven hexagonal architecture https://codanyks.hashnode.dev/series/code-the-core-ddd-nodejs-nestjs
 
 ## 10. Testing Friently
 
