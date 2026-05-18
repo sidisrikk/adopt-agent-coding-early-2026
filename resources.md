@@ -53,3 +53,19 @@ This document organizes key resources for agentic coding, AI skills, and collabo
 
 - [AI กับ SDLC และวิถีที่กำลังเปลี่ยนไป (Thai)](https://kulawat.medium.com/ai-%E0%B8%81%E0%B8%B1%E0%B8%9A-sdlc-%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%A7%E0%B8%B4%E0%B8%96%E0%B8%B5%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%81%E0%B8%B3%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B9%80%E0%B8%9B%E0%B8%A5%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%99%E0%B9%84%E0%B8%9B-3ad8b0977f0b)
 - [AI-Driven Development Life Cycle](https://medium.com/kbtg-life/ai-driven-development-life-cycle-0932218cfe81)
+
+## 9. Project Folder Architecture.
+
+- JS Boundaries is a project that provides a set of tools to help you enforce architectural boundaries in your JavaScript and TypeScript projects.
+- folder structure guidelines .md both frontend and backend
+- domain-driven hexagonal architecture
+
+## 10. Testing Friently
+
+- mutation testing
+- pure business domain
+
+## 11. frontend libraries
+
+- shadcn/ui (tailwindcss) https://github.com/shadcn-ui/ui/tree/main/skills/shadcn
+- mui v7 https://github.com/softaworks/agent-toolkit/tree/main/skills/mui
