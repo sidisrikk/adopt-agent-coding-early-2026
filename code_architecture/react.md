@@ -16,19 +16,10 @@ To maximize velocity, our architecture must champion **Low Cognitive Load** and 
 
 | Architecture | Scaling Ability | AI Agent Compatibility | Main Bottleneck for AI / Squad |
 | ------------ | --------------- | ---------------------- | ------------------------------ |
-
-| **Folder by Type** <br>
-
-<br>_(components/, hooks/)_ | Poor | **Low** | **High Folder Hopping:** Forces AI to execute multiple tool calls across scattered folders to change one feature. |
-| **Atomic Design** <br>
-
-<br>_(atoms/, molecules/)_ | Medium | **Low** | **Subjective Boundaries:** Constant bikeshedding over what is a molecule vs. organism; confuses AI rules. |
-| **Feature-Sliced Design (FSD)** <br>
-
-<br>_(entities/, features/)_ | Enterprise | **Medium** | **Token Bloat:** High abstraction and deep splitting over-engineer simple tasks, draining token windows. |
-| **Feature-Based (Modular)** <br>
-
-<br>_(features/[domain]/)_ | High | **Excellent (The Winner)** | Requires developer discipline to maintain strict entry points (`index.ts`) and clean shared folder boundaries. |
+| **Folder by Type** (components/, hooks/)  | Poor | **Low** | **High Folder Hopping:** Forces AI to execute multiple tool calls across scattered folders to change one feature. |
+| **Atomic Design** (atoms/, molecules/) | Medium | **Low** | **Subjective Boundaries:** Constant bikeshedding over what is a molecule vs. organism; confuses AI rules. |
+| **Feature-Sliced Design** (entities/, features/) | Enterprise | **Medium** | **Token Bloat:** High abstraction and deep splitting over-engineer simple tasks, draining token windows. |
+| **Feature-Based (Modular)** (features/[domain]/) | High | **Excellent (The Winner)** | Requires developer discipline to maintain strict entry points (`index.ts`) and clean shared folder boundaries. |
 
 ---
 
