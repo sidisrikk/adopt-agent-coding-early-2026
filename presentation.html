@@ -969,6 +969,97 @@
         border: 1px solid var(--border);
         opacity: 0.8;
       }
+
+      /* Code Editor & Tree Styles for Slide 9 */
+      .code-container {
+        background: #2b2621;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        font-size: 0.85rem;
+        color: #f7f4ef;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(43, 38, 33, 0.15);
+        text-align: left;
+      }
+      .code-header {
+        background: #201c18;
+        padding: 0.5rem 1rem;
+        border-bottom: 1px solid #36302a;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #8a7f76;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .code-header-dots {
+        display: flex;
+        gap: 4px;
+        margin-right: 0.5rem;
+      }
+      .code-header-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .code-header-dot.red { background: #ff5f56; }
+      .code-header-dot.yellow { background: #ffbd2e; }
+      .code-header-dot.green { background: #27c93f; }
+      .file-tree {
+        padding: 1rem;
+        line-height: 1.6;
+      }
+      .tree-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.25rem;
+      }
+      .tree-item.indent-1 { margin-left: 1.25rem; }
+      .tree-item.indent-2 { margin-left: 2.5rem; }
+      .tree-item.indent-3 { margin-left: 3.75rem; }
+      .tree-item.indent-4 { margin-left: 5rem; }
+      .tree-icon {
+        width: 1rem;
+        height: 1rem;
+        color: #8a7f76;
+        flex-shrink: 0;
+      }
+      .folder-name {
+        color: #e8a87c;
+        font-weight: 500;
+      }
+      .file-name {
+        color: #f7f4ef;
+      }
+      .file-name.active {
+        color: #e8a87c;
+        font-weight: 600;
+      }
+      .code-pre {
+        margin: 0;
+        padding: 1rem;
+        overflow-x: auto;
+        font-family: inherit;
+        line-height: 1.5;
+      }
+      .code-frontmatter {
+        color: #8a7f76;
+      }
+      .code-val {
+        color: #a2b9ae;
+      }
+      .code-heading {
+        color: #e8a87c;
+        font-weight: bold;
+      }
+      .code-bold {
+        font-weight: bold;
+      }
     </style>
   </head>
   <body class="view-scroll">
@@ -987,6 +1078,13 @@
       <symbol id="icon-cog" viewBox="0 0 24 24">
         <circle cx="12" cy="12" r="3"/>
         <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+      </symbol>
+      <symbol id="icon-folder" viewBox="0 0 24 24">
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icon-file" viewBox="0 0 24 24">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <polyline points="13 2 13 9 20 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
       </symbol>
     </svg>
 
@@ -1883,30 +1981,63 @@
           best practices.
         </h3>
         <div class="evidence">
-          <h4 style="margin-bottom: 1rem; font-size: 1.1rem">
-            Skill Structure
-          </h4>
-          <img
-            src="raw/images/skill2.png"
-            alt="Skill Structure"
-            style="
-              width: 100%;
-              border-radius: 8px;
-              border: 1px solid var(--border);
-            "
-          />
-          <h4 style="margin-bottom: 1rem; font-size: 1.1rem; margin-top: 2rem">
-            Skill Definition (SKILL.md)
-          </h4>
-          <img
-            src="raw/images/skill1.png"
-            alt="Skill Definition"
-            style="
-              width: 100%;
-              border-radius: 8px;
-              border: 1px solid var(--border);
-            "
-          />
+          <div class="grid-2">
+            <div>
+              <h4 style="margin-bottom: 1rem; font-size: 1.1rem">
+                Skill Structure
+              </h4>
+              <div class="code-container">
+                <div class="code-header">
+                  <div class="code-header-dots">
+                    <span class="code-header-dot red"></span>
+                    <span class="code-header-dot yellow"></span>
+                    <span class="code-header-dot green"></span>
+                  </div>
+                  <span>WORKSPACE TREE</span>
+                </div>
+                <div class="file-tree">
+                  <div class="tree-item"><svg class="tree-icon"><use href="#icon-folder"/></svg> <span class="folder-name">.agents/</span></div>
+                  <div class="tree-item indent-1"><svg class="tree-icon"><use href="#icon-folder"/></svg> <span class="folder-name">skills/</span></div>
+                  <div class="tree-item indent-2"><svg class="tree-icon"><use href="#icon-folder"/></svg> <span class="folder-name">presentation-design/</span></div>
+                  <div class="tree-item indent-3"><svg class="tree-icon text-primary"><use href="#icon-file"/></svg> <span class="file-name active">SKILL.md</span></div>
+                  <div class="tree-item indent-3"><svg class="tree-icon"><use href="#icon-folder"/></svg> <span class="folder-name">scripts/</span></div>
+                  <div class="tree-item indent-4"><svg class="tree-icon"><use href="#icon-file"/></svg> <span class="file-name">validate.sh</span></div>
+                  <div class="tree-item indent-3"><svg class="tree-icon"><use href="#icon-folder"/></svg> <span class="folder-name">resources/</span></div>
+                  <div class="tree-item indent-4"><svg class="tree-icon"><use href="#icon-file"/></svg> <span class="file-name">template.json</span></div>
+                  <div class="tree-item"><svg class="tree-icon"><use href="#icon-file"/></svg> <span class="file-name">skills-lock.json</span></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 style="margin-bottom: 1rem; font-size: 1.1rem">
+                Skill Definition (SKILL.md)
+              </h4>
+              <div class="code-container">
+                <div class="code-header">
+                  <div class="code-header-dots">
+                    <span class="code-header-dot red"></span>
+                    <span class="code-header-dot yellow"></span>
+                    <span class="code-header-dot green"></span>
+                  </div>
+                  <span>presentation-design / SKILL.md</span>
+                </div>
+                <pre class="code-pre"><code class="language-markdown"><span class="code-frontmatter">---
+name: <span class="code-val">presentation-design</span>
+description: <span class="code-val">"Design and evaluate presentations..."</span>
+version: <span class="code-val">"1.0"</span>
+mode: <span class="code-val">diagnostic+assistive</span>
+---</span>
+
+<span class="code-heading"># Presentation Design Diagnostic</span>
+
+<span class="code-heading">## Purpose</span>
+Design and evaluate presentations that communicate effectively...
+
+<span class="code-heading">## Core Principle</span>
+<span class="code-bold">Audience-centered design.</span> Every decision should serve...</code></pre>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
