@@ -37,6 +37,11 @@
         padding: 0;
       }
 
+      html {
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+      }
+
       body {
         font-family: var(--font-sans);
         background-color: var(--bg-page);
@@ -143,6 +148,8 @@
 
       /* Slide Card Base Style */
       .slide {
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
         margin-bottom: 5rem;
         background: var(--bg-slide);
         border: 1px solid var(--border);
