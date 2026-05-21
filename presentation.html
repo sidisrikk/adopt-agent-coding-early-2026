@@ -965,6 +965,24 @@
     </style>
   </head>
   <body class="view-scroll">
+    <!-- SVG Sprite sheet for consolidated icons -->
+    <svg style="display: none;">
+      <symbol id="icon-star" viewBox="0 0 24 24">
+        <path d="M12 2l2.4 7.2L21.6 12l-7.2 2.4L12 21.6l-2.4-7.2L2.4 12l7.2-2.4z"/>
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12"/>
+      </symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </symbol>
+      <symbol id="icon-cog" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+      </symbol>
+    </svg>
+
     <!-- Floating Presentation Control Bar -->
     <div class="deck-controls" style="justify-content: center">
       <div style="display: flex; align-items: center; gap: 0.5rem">
@@ -1012,16 +1030,8 @@
       <div class="slide slide-cover" id="slide-1">
         <div class="slide-header">
           <span class="topic-tag">
-            <svg
-              class="inline-star"
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="currentColor"
-            >
-              <path
-                d="M12 2l2.4 7.2L21.6 12l-7.2 2.4L12 21.6l-2.4-7.2L2.4 12l7.2-2.4z"
-              />
+            <svg class="inline-star" width="14" height="14" fill="currentColor">
+              <use href="#icon-star"/>
             </svg>
             Strategic Overview
           </span>
@@ -1038,16 +1048,8 @@
       <div class="slide" id="slide-2">
         <div class="slide-header">
           <span class="topic-tag">
-            <svg
-              class="inline-star"
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="currentColor"
-            >
-              <path
-                d="M12 2l2.4 7.2L21.6 12l-7.2 2.4L12 21.6l-2.4-7.2L2.4 12l7.2-2.4z"
-              />
+            <svg class="inline-star" width="14" height="14" fill="currentColor">
+              <use href="#icon-star"/>
             </svg>
             Maturity Framework
           </span>
@@ -1218,16 +1220,8 @@
       <div class="slide" id="slide-3">
         <div class="slide-header">
           <span class="topic-tag">
-            <svg
-              class="inline-star"
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="currentColor"
-            >
-              <path
-                d="M12 2l2.4 7.2L21.6 12l-7.2 2.4L12 21.6l-2.4-7.2L2.4 12l7.2-2.4z"
-              />
+            <svg class="inline-star" width="14" height="14" fill="currentColor">
+              <use href="#icon-star"/>
             </svg>
             Collaboration Mechanics
           </span>
@@ -1332,18 +1326,8 @@
               <div class="node-meta">
                 <span class="node-num">1</span>
                 <span class="badge-mini hitl">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="10"
-                    height="10"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
+                  <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <use href="#icon-user"/>
                   </svg>
                   HITL
                 </span>
@@ -1357,20 +1341,8 @@
               <div class="node-meta">
                 <span class="node-num">2</span>
                 <span class="badge-mini afk">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="10"
-                    height="10"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <circle cx="12" cy="12" r="3" />
-                    <path
-                      d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
-                    />
+                  <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <use href="#icon-cog"/>
                   </svg>
                   AFK
                 </span>
@@ -1384,20 +1356,8 @@
               <div class="node-meta">
                 <span class="node-num">3</span>
                 <span class="badge-mini afk">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="10"
-                    height="10"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <circle cx="12" cy="12" r="3" />
-                    <path
-                      d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
-                    />
+                  <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <use href="#icon-cog"/>
                   </svg>
                   AFK
                 </span>
@@ -1411,20 +1371,8 @@
               <div class="node-meta">
                 <span class="node-num">4</span>
                 <span class="badge-mini afk">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="10"
-                    height="10"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <circle cx="12" cy="12" r="3" />
-                    <path
-                      d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
-                    />
+                  <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <use href="#icon-cog"/>
                   </svg>
                   AFK
                 </span>
@@ -1438,18 +1386,8 @@
               <div class="node-meta">
                 <span class="node-num">5</span>
                 <span class="badge-mini hitl">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="10"
-                    height="10"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
+                  <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <use href="#icon-user"/>
                   </svg>
                   HITL
                 </span>
@@ -1491,16 +1429,8 @@
       <div class="slide" id="slide-4">
         <div class="slide-header">
           <span class="topic-tag">
-            <svg
-              class="inline-star"
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="currentColor"
-            >
-              <path
-                d="M12 2l2.4 7.2L21.6 12l-7.2 2.4L12 21.6l-2.4-7.2L2.4 12l7.2-2.4z"
-              />
+            <svg class="inline-star" width="14" height="14" fill="currentColor">
+              <use href="#icon-star"/>
             </svg>
             Token Architecture
           </span>
@@ -1527,16 +1457,8 @@
       <div class="slide" id="slide-5">
         <div class="slide-header">
           <span class="topic-tag">
-            <svg
-              class="inline-star"
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="currentColor"
-            >
-              <path
-                d="M12 2l2.4 7.2L21.6 12l-7.2 2.4L12 21.6l-2.4-7.2L2.4 12l7.2-2.4z"
-              />
+            <svg class="inline-star" width="14" height="14" fill="currentColor">
+              <use href="#icon-star"/>
             </svg>
             Attention Dynamics
           </span>
@@ -1563,16 +1485,8 @@
       <div class="slide" id="slide-6">
         <div class="slide-header">
           <span class="topic-tag">
-            <svg
-              class="inline-star"
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="currentColor"
-            >
-              <path
-                d="M12 2l2.4 7.2L21.6 12l-7.2 2.4L12 21.6l-2.4-7.2L2.4 12l7.2-2.4z"
-              />
+            <svg class="inline-star" width="14" height="14" fill="currentColor">
+              <use href="#icon-star"/>
             </svg>
             Context Management Tactics
           </span>
@@ -1730,16 +1644,8 @@
       <div class="slide" id="slide-7">
         <div class="slide-header">
           <span class="topic-tag">
-            <svg
-              class="inline-star"
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="currentColor"
-            >
-              <path
-                d="M12 2l2.4 7.2L21.6 12l-7.2 2.4L12 21.6l-2.4-7.2L2.4 12l7.2-2.4z"
-              />
+            <svg class="inline-star" width="14" height="14" fill="currentColor">
+              <use href="#icon-star"/>
             </svg>
             Agentic Architecture
           </span>
@@ -1933,16 +1839,8 @@
       <div class="slide" id="slide-8">
         <div class="slide-header">
           <span class="topic-tag">
-            <svg
-              class="inline-star"
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="currentColor"
-            >
-              <path
-                d="M12 2l2.4 7.2L21.6 12l-7.2 2.4L12 21.6l-2.4-7.2L2.4 12l7.2-2.4z"
-              />
+            <svg class="inline-star" width="14" height="14" fill="currentColor">
+              <use href="#icon-star"/>
             </svg>
             Transfer of Intent
           </span>
@@ -1966,16 +1864,8 @@
       <div class="slide" id="slide-9">
         <div class="slide-header">
           <span class="topic-tag">
-            <svg
-              class="inline-star"
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="currentColor"
-            >
-              <path
-                d="M12 2l2.4 7.2L21.6 12l-7.2 2.4L12 21.6l-2.4-7.2L2.4 12l7.2-2.4z"
-              />
+            <svg class="inline-star" width="14" height="14" fill="currentColor">
+              <use href="#icon-star"/>
             </svg>
             Expert Capabilities
           </span>
@@ -2017,16 +1907,8 @@
       <div class="slide" id="slide-10">
         <div class="slide-header">
           <span class="topic-tag">
-            <svg
-              class="inline-star"
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="currentColor"
-            >
-              <path
-                d="M12 2l2.4 7.2L21.6 12l-7.2 2.4L12 21.6l-2.4-7.2L2.4 12l7.2-2.4z"
-              />
+            <svg class="inline-star" width="14" height="14" fill="currentColor">
+              <use href="#icon-star"/>
             </svg>
             Harness Engineering
           </span>
@@ -2557,16 +2439,8 @@
       <div class="slide" id="slide-11">
         <div class="slide-header">
           <span class="topic-tag">
-            <svg
-              class="inline-star"
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="currentColor"
-            >
-              <path
-                d="M12 2l2.4 7.2L21.6 12l-7.2 2.4L12 21.6l-2.4-7.2L2.4 12l7.2-2.4z"
-              />
+            <svg class="inline-star" width="14" height="14" fill="currentColor">
+              <use href="#icon-star"/>
             </svg>
             Standards & Blueprints
           </span>
@@ -2753,16 +2627,8 @@
       <div class="slide" id="slide-12">
         <div class="slide-header">
           <span class="topic-tag">
-            <svg
-              class="inline-star"
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="currentColor"
-            >
-              <path
-                d="M12 2l2.4 7.2L21.6 12l-7.2 2.4L12 21.6l-2.4-7.2L2.4 12l7.2-2.4z"
-              />
+            <svg class="inline-star" width="14" height="14" fill="currentColor">
+              <use href="#icon-star"/>
             </svg>
             Capability Repositories
           </span>
@@ -2793,50 +2659,20 @@
               </h3>
               <ul class="list-unstyled">
                 <li>
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    style="margin-top: 0.3rem"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                    <use href="#icon-check"/>
                   </svg>
                   <a href="https://www.skills.sh/">skills.sh</a>
                 </li>
                 <li>
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    style="margin-top: 0.3rem"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                    <use href="#icon-check"/>
                   </svg>
                   <a href="https://skillsmp.com/">skillsmp.com</a>
                 </li>
                 <li>
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    style="margin-top: 0.3rem"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                    <use href="#icon-check"/>
                   </svg>
                   <a
                     href="https://github.com/sickn33/antigravity-awesome-skills"
@@ -2844,36 +2680,16 @@
                   >
                 </li>
                 <li>
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    style="margin-top: 0.3rem"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                    <use href="#icon-check"/>
                   </svg>
                   <a href="https://github.com/affaan-m/everything-claude-code"
                     >everything-claude-code</a
                   >
                 </li>
                 <li>
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    style="margin-top: 0.3rem"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                    <use href="#icon-check"/>
                   </svg>
                   <a href="https://github.com/alirezarezvani/claude-skills"
                     >claude-skills</a
@@ -2904,54 +2720,24 @@
               </h3>
               <ul class="list-unstyled">
                 <li>
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    style="margin-top: 0.3rem"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                    <use href="#icon-check"/>
                   </svg>
                   <a href="https://github.com/vercel-labs/agent-skills"
                     >vercel-labs/agent-skills</a
                   >
                 </li>
                 <li>
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    style="margin-top: 0.3rem"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                    <use href="#icon-check"/>
                   </svg>
                   <a href="https://github.com/github/awesome-copilot"
                     >awesome-copilot</a
                   >
                 </li>
                 <li>
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    style="margin-top: 0.3rem"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                    <use href="#icon-check"/>
                   </svg>
                   <a
                     href="https://github.com/K-Dense-AI/scientific-agent-skills"
@@ -2959,36 +2745,16 @@
                   >
                 </li>
                 <li>
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    style="margin-top: 0.3rem"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                    <use href="#icon-check"/>
                   </svg>
                   <a href="https://github.com/wshobson/agents"
                     >wshobson/agents</a
                   >
                 </li>
                 <li>
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    style="margin-top: 0.3rem"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                    <use href="#icon-check"/>
                   </svg>
                   <a href="https://github.com/garrytan/gstack"
                     >garrytan/gstack</a
@@ -3004,16 +2770,8 @@
       <div class="slide" id="slide-13">
         <div class="slide-header">
           <span class="topic-tag">
-            <svg
-              class="inline-star"
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="currentColor"
-            >
-              <path
-                d="M12 2l2.4 7.2L21.6 12l-7.2 2.4L12 21.6l-2.4-7.2L2.4 12l7.2-2.4z"
-              />
+            <svg class="inline-star" width="14" height="14" fill="currentColor">
+              <use href="#icon-star"/>
             </svg>
             System Dynamics
           </span>
@@ -3233,16 +2991,8 @@
       >
         <div class="slide-header" style="width: 100%">
           <span class="topic-tag">
-            <svg
-              class="inline-star"
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="currentColor"
-            >
-              <path
-                d="M12 2l2.4 7.2L21.6 12l-7.2 2.4L12 21.6l-2.4-7.2L2.4 12l7.2-2.4z"
-              />
+            <svg class="inline-star" width="14" height="14" fill="currentColor">
+              <use href="#icon-star"/>
             </svg>
             Discussion
           </span>
