@@ -1060,6 +1060,276 @@
       .code-bold {
         font-weight: bold;
       }
+
+      /* Slide 1 Cover H1 style */
+      .slide-cover h1 {
+        margin-top: 1rem;
+      }
+
+      /* Slide 2: Ladder step overrides */
+      #slide-2 .ladder-step {
+        min-height: 280px;
+        padding: 2rem 1.5rem;
+      }
+      #slide-2 .step-num {
+        border: none;
+        padding: 0;
+        margin-bottom: 0.25rem;
+      }
+      #slide-2 h4 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+      }
+      #slide-2 .ladder-step p {
+        font-size: 1rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        margin-top: auto;
+        border-top: 1px dashed var(--border);
+        padding-top: 1rem;
+      }
+      #slide-2 .ladder-step.pivot-step p {
+        color: var(--text-main);
+        font-weight: 500;
+        border-top-color: var(--primary);
+      }
+
+      /* Slide 3: Interactive hub text transition */
+      .interactive-hub-text {
+        transition: all 0.3s ease;
+      }
+
+      /* Rule of Thumb Callout Box */
+      .callout-box {
+        background: #faf8f5;
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--primary);
+        border-left-width: 4px;
+        padding: 1.25rem 1.75rem;
+        border-radius: 0 8px 8px 0;
+        margin-top: 1rem;
+      }
+      .callout-box p {
+        font-family: var(--font-serif);
+        font-size: 1rem;
+        font-style: italic;
+        color: var(--text-main);
+        margin: 0;
+      }
+
+      /* Slide 4 & 5: Center-aligned evidence and dynamic images */
+      .evidence-centered {
+        align-items: center;
+      }
+      .responsive-img-s4 {
+        width: 100%;
+        max-height: 400px;
+        filter: drop-shadow(0 4px 12px rgba(43, 38, 33, 0.03));
+      }
+      .responsive-img-s5 {
+        width: 100%;
+        max-height: 500px;
+        border-radius: 12px;
+        filter: drop-shadow(0 4px 12px rgba(43, 38, 33, 0.05));
+      }
+
+      /* Slide 7: Flow node modifiers */
+      .flow-node.user-node {
+        border-left: 4px solid var(--text-muted);
+      }
+      .flow-node.orchestrator-node {
+        border-left: 4px solid var(--primary);
+        background: var(--primary-light);
+      }
+      .flow-node.orchestrator-node .node-title {
+        color: var(--primary);
+      }
+      .flow-node.implementer-node {
+        border-left: 4px solid var(--accent);
+        background: var(--accent-light);
+      }
+      .flow-node.implementer-node .node-title {
+        color: var(--accent);
+      }
+      .flow-node.debugger-node {
+        border-left: 4px solid #d4a373;
+        background: #fffdf9;
+      }
+      .flow-node.debugger-node .node-title {
+        color: #b07d4e;
+      }
+      .flow-arrow-up {
+        transform: rotate(-15deg);
+      }
+      .flow-arrow-down {
+        transform: rotate(15deg);
+      }
+
+      /* Slide 9: Heading spacing */
+      .heading-spaced {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      /* Slide 11: Card overrides and clean list modifiers */
+      .card h4.spaced {
+        margin: 0.5rem 0;
+      }
+      .card p.desc {
+        margin-bottom: 1.5rem;
+        font-size: 0.9rem;
+      }
+      .list-unstyled li svg.shrink-align {
+        flex-shrink: 0;
+        margin-top: 0.2rem;
+      }
+      .list-unstyled li p.sub-desc {
+        font-size: 0.8rem;
+        margin-top: 0.1rem;
+      }
+
+      /* Slide 12: Accent list SVGs */
+      .list-unstyled li svg.accent-icon {
+        flex-shrink: 0;
+        margin-top: 0.3rem;
+      }
+      .market-column h3 svg.accent-color {
+        color: var(--accent);
+      }
+
+      /* Slide 13: Flight levels styling */
+      .flight-levels-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      .flight-level-card {
+        border-radius: 12px;
+        text-align: center;
+        position: relative;
+        transition: var(--transition);
+      }
+      .flight-level-card h4 {
+        font-family: var(--font-serif);
+        margin-bottom: 0.25rem;
+      }
+      .flight-level-card.level-3 {
+        width: 75%;
+        background: #fdfdfb;
+        border: 1px dashed var(--border);
+        padding: 1.25rem;
+      }
+      .flight-level-card.level-3:hover {
+        border-color: var(--text-muted);
+      }
+      .flight-level-card.level-3 h4 {
+        font-size: 1.15rem;
+        color: var(--text-muted);
+      }
+      .flight-level-card.level-3 p {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+      .flight-level-card.level-2 {
+        width: 85%;
+        background: #fdf6f2;
+        border: 2px solid var(--primary);
+        padding: 1.75rem;
+        box-shadow: 0 10px 25px rgba(191, 81, 55, 0.1);
+        transform: scale(1.02);
+        z-index: 10;
+      }
+      .flight-level-card.level-2 h4 {
+        font-size: 1.45rem;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+      .flight-level-card.level-2 p.subtitle {
+        font-size: 1rem;
+        color: var(--text-main);
+        font-weight: 500;
+      }
+      .flight-level-card.level-2 p.meta {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-top: 0.5rem;
+        font-style: italic;
+      }
+      .flight-level-card.level-1 {
+        width: 100%;
+        background: var(--accent-light);
+        border: 2px solid rgba(58, 94, 78, 0.4);
+        padding: 1.5rem;
+      }
+      .flight-level-card.level-1 h4 {
+        font-size: 1.25rem;
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+      }
+      .flight-level-card.level-1 p {
+        font-size: 0.95rem;
+        color: var(--text-main);
+      }
+      .flight-level-badge {
+        position: absolute;
+        font-size: 0.65rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        border-radius: 99px;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .flight-level-badge.primary {
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--primary);
+        color: white;
+        padding: 0.25rem 0.75rem;
+      }
+      .flight-level-badge.accent {
+        bottom: -12px;
+        right: 20px;
+        background: var(--accent);
+        color: white;
+        padding: 0.3rem 0.75rem;
+        box-shadow: 0 4px 10px rgba(58, 94, 78, 0.2);
+      }
+
+      /* Slide 14: Center alignment and text styles */
+      .slide-centered {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .slide-centered .slide-header {
+        width: 100%;
+      }
+      .qa-evidence {
+        align-items: center;
+        justify-content: center;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .qa-evidence h2 {
+        font-family: var(--font-serif);
+        font-size: 3.5rem;
+        font-weight: 500;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+      .qa-evidence p {
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        font-weight: 700;
+      }
     </style>
   </head>
   <body class="view-scroll">
@@ -1142,7 +1412,7 @@
           </span>
         </div>
         <div class="evidence">
-          <h1 style="margin-top: 1rem">Adopting Agentic Coding</h1>
+          <h1>Adopting Agentic Coding</h1>
           <p class="subtitle">
             Moving beyond simple autocomplete to collaborative AI workflows.
           </p>
@@ -1167,59 +1437,27 @@
         <div class="evidence">
           <div class="ladder-container">
             <!-- Level 1 (Staggered lowest) -->
-            <div
-              class="ladder-step assistance-era staggered-1"
-              style="min-height: 280px; padding: 2rem 1.5rem"
-            >
+            <div class="ladder-step assistance-era staggered-1">
               <div>
-                <div
-                  class="step-num"
-                  style="border: none; padding: 0; margin-bottom: 0.25rem"
-                >
+                <div class="step-num">
                   <span>Level 1</span>
                 </div>
-                <h4 style="font-size: 1.75rem; margin-bottom: 0.5rem">
-                  Completion
-                </h4>
+                <h4>Completion</h4>
               </div>
-              <p
-                style="
-                  font-size: 1rem;
-                  color: var(--text-muted);
-                  line-height: 1.5;
-                  margin-top: auto;
-                  border-top: 1px dashed var(--border);
-                  padding-top: 1rem;
-                "
-              >
+              <p>
                 Syntax auto-complete acting as a fast but simple helper.
               </p>
             </div>
 
             <!-- Level 2 -->
-            <div
-              class="ladder-step assistance-era staggered-2"
-              style="min-height: 280px; padding: 2rem 1.5rem"
-            >
+            <div class="ladder-step assistance-era staggered-2">
               <div>
-                <div
-                  class="step-num"
-                  style="border: none; padding: 0; margin-bottom: 0.25rem"
-                >
+                <div class="step-num">
                   <span>Level 2</span>
                 </div>
-                <h4 style="font-size: 1.75rem; margin-bottom: 0.5rem">Chat</h4>
+                <h4>Chat</h4>
               </div>
-              <p
-                style="
-                  font-size: 1rem;
-                  color: var(--text-muted);
-                  line-height: 1.5;
-                  margin-top: auto;
-                  border-top: 1px dashed var(--border);
-                  padding-top: 1rem;
-                "
-              >
+              <p>
                 Generating blocks of code with an advising AI peer.
               </p>
             </div>
@@ -1227,14 +1465,7 @@
             <!-- Visual Threshold Divider -->
             <div class="threshold-bar">
               <div class="threshold-line"></div>
-              <div
-                class="threshold-pill"
-                style="
-                  padding: 0.75rem 0.4rem;
-                  font-size: 0.6rem;
-                  letter-spacing: 0.1em;
-                "
-              >
+              <div class="threshold-pill">
                 <svg
                   viewBox="0 0 24 24"
                   width="10"
@@ -1244,7 +1475,6 @@
                   stroke-width="2.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  style="margin-bottom: 0.2rem"
                 >
                   <path
                     d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
@@ -1258,62 +1488,27 @@
             </div>
 
             <!-- Level 3 (Critical Pivot) -->
-            <div
-              class="ladder-step pivot-step staggered-3"
-              style="min-height: 280px; padding: 2rem 1.5rem"
-            >
+            <div class="ladder-step pivot-step staggered-3">
               <div>
-                <div
-                  class="step-num"
-                  style="border: none; padding: 0; margin-bottom: 0.25rem"
-                >
+                <div class="step-num">
                   <span>Level 3</span>
                 </div>
-                <h4 style="font-size: 1.75rem; margin-bottom: 0.5rem">
-                  Command
-                </h4>
+                <h4>Command</h4>
               </div>
-              <p
-                style="
-                  font-size: 1rem;
-                  color: var(--text-main);
-                  line-height: 1.5;
-                  font-weight: 500;
-                  margin-top: auto;
-                  border-top: 1px dashed var(--primary);
-                  padding-top: 1rem;
-                "
-              >
+              <p>
                 Modifying files & systems directly as a co-pilot driver.
               </p>
             </div>
 
             <!-- Level 4 -->
-            <div
-              class="ladder-step agentic-era staggered-4"
-              style="min-height: 280px; padding: 2rem 1.5rem"
-            >
+            <div class="ladder-step agentic-era staggered-4">
               <div>
-                <div
-                  class="step-num"
-                  style="border: none; padding: 0; margin-bottom: 0.25rem"
-                >
+                <div class="step-num">
                   <span>Level 4</span>
                 </div>
-                <h4 style="font-size: 1.75rem; margin-bottom: 0.5rem">
-                  Background
-                </h4>
+                <h4>Background</h4>
               </div>
-              <p
-                style="
-                  font-size: 1rem;
-                  color: var(--text-muted);
-                  line-height: 1.5;
-                  margin-top: auto;
-                  border-top: 1px dashed var(--border);
-                  padding-top: 1rem;
-                "
-              >
+              <p>
                 Running systemic asynchronous workflows at scale.
               </p>
             </div>
@@ -1392,7 +1587,7 @@
                 fill="#bf5137"
                 text-anchor="middle"
                 letter-spacing="0.12em"
-                style="transition: all 0.3s ease"
+                class="interactive-hub-text"
               >
                 WORKFLOW
               </text>
@@ -1406,7 +1601,7 @@
                 font-size="14"
                 fill="#3a5e4e"
                 text-anchor="middle"
-                style="transition: all 0.3s ease"
+                class="interactive-hub-text"
               >
                 Cycle
               </text>
@@ -1503,26 +1698,8 @@
           </div>
 
           <!-- Rule of Thumb Callout Box -->
-          <div
-            style="
-              background: #faf8f5;
-              border-left: 4px solid var(--primary);
-              padding: 1.25rem 1.75rem;
-              border-radius: 0 8px 8px 0;
-              border: 1px solid var(--border);
-              border-left-width: 4px;
-              margin-top: 1rem;
-            "
-          >
-            <p
-              style="
-                font-family: var(--font-serif);
-                font-size: 1rem;
-                font-style: italic;
-                color: var(--text-main);
-                margin: 0;
-              "
-            >
+          <div class="callout-box">
+            <p>
               <strong>The rule of thumb:</strong> AFK handles the deterministic
               execution; HITL handles the ambiguity and taste.
             </p>
@@ -1545,15 +1722,11 @@
           The user's actual question is often a tiny fraction of the total token
           count.
         </h3>
-        <div class="evidence" style="align-items: center">
+        <div class="evidence evidence-centered">
           <img
             src="raw/images/contextwindow.svg"
             alt="Context Window Anatomy"
-            style="
-              width: 100%;
-              max-height: 400px;
-              filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.03));
-            "
+            class="responsive-img-s4"
           />
         </div>
       </div>
@@ -1572,16 +1745,11 @@
         <h3 class="assertion">
           The LLM pays less attention to the middle of long conversations.
         </h3>
-        <div class="evidence" style="align-items: center">
+        <div class="evidence evidence-centered">
           <img
             src="raw/images/middleloss.png"
             alt="The U-Shaped Attention Curve"
-            style="
-              width: 100%;
-              max-height: 500px;
-              border-radius: 12px;
-              filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05));
-            "
+            class="responsive-img-s5"
           />
         </div>
       </div>
@@ -1764,10 +1932,7 @@
           <div class="flow-grid">
             <!-- Left: User -->
             <div class="grid-span-2">
-              <div
-                class="flow-node"
-                style="border-left: 4px solid var(--text-muted)"
-              >
+              <div class="flow-node user-node">
                 <svg
                   viewBox="0 0 24 24"
                   width="22"
@@ -1806,13 +1971,7 @@
 
             <!-- Center: Orchestrator -->
             <div class="grid-span-2">
-              <div
-                class="flow-node"
-                style="
-                  border-left: 4px solid var(--primary);
-                  background: var(--primary-light);
-                "
-              >
+              <div class="flow-node orchestrator-node">
                 <svg
                   viewBox="0 0 24 24"
                   width="24"
@@ -1833,9 +1992,7 @@
                   <line x1="7" y1="12" x2="9" y2="12" />
                   <line x1="15" y1="12" x2="17" y2="12" />
                 </svg>
-                <div class="node-title" style="color: var(--primary)">
-                  Orchestrator
-                </div>
+                <div class="node-title">Orchestrator</div>
                 <div class="node-desc">Plans, validates, routes execution</div>
               </div>
             </div>
@@ -1843,7 +2000,7 @@
             <!-- Top Branch Arrow to Implementer -->
             <div class="flow-connector">
               <svg
-                class="flow-arrow-split"
+                class="flow-arrow-split flow-arrow-up"
                 viewBox="0 0 24 24"
                 width="24"
                 height="24"
@@ -1852,7 +2009,6 @@
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                style="transform: rotate(-15deg)"
               >
                 <line x1="3" y1="9" x2="21" y2="9"></line>
                 <polyline points="17 5 21 9 17 13"></polyline>
@@ -1862,13 +2018,7 @@
             </div>
 
             <!-- Implementer Sub-agent -->
-            <div
-              class="flow-node"
-              style="
-                border-left: 4px solid var(--accent);
-                background: var(--accent-light);
-              "
-            >
+            <div class="flow-node implementer-node">
               <svg
                 viewBox="0 0 24 24"
                 width="24"
@@ -1885,16 +2035,14 @@
                 <circle cx="17" cy="9" r="1" fill="currentColor" />
                 <circle cx="9" cy="17" r="1" fill="currentColor" />
               </svg>
-              <div class="node-title" style="color: var(--accent)">
-                Implementer
-              </div>
+              <div class="node-title">Implementer</div>
               <div class="node-desc">Translates specs into clean features</div>
             </div>
 
             <!-- Bottom Branch Arrow to Debugger -->
             <div class="flow-connector">
               <svg
-                class="flow-arrow-split"
+                class="flow-arrow-split flow-arrow-down"
                 viewBox="0 0 24 24"
                 width="24"
                 height="24"
@@ -1903,7 +2051,6 @@
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                style="transform: rotate(15deg)"
               >
                 <line x1="3" y1="9" x2="21" y2="9"></line>
                 <polyline points="17 5 21 9 17 13"></polyline>
@@ -1913,10 +2060,7 @@
             </div>
 
             <!-- Debugger Sub-agent -->
-            <div
-              class="flow-node"
-              style="border-left: 4px solid #d4a373; background: #fffdf9"
-            >
+            <div class="flow-node debugger-node">
               <svg
                 viewBox="0 0 24 24"
                 width="24"
@@ -1931,7 +2075,7 @@
                 <path d="M6 10l3 2-3 2" />
                 <line x1="11" y1="14" x2="17" y2="14" />
               </svg>
-              <div class="node-title" style="color: #b07d4e">Debugger</div>
+              <div class="node-title">Debugger</div>
               <div class="node-desc">
                 Reviews output, fixes compiler warnings
               </div>
@@ -1983,7 +2127,7 @@
         <div class="evidence">
           <div class="grid-2">
             <div>
-              <h4 style="margin-bottom: 1rem; font-size: 1.1rem">
+              <h4 class="heading-spaced">
                 Skill Structure
               </h4>
               <div class="code-container">
@@ -2009,7 +2153,7 @@
               </div>
             </div>
             <div>
-              <h4 style="margin-bottom: 1rem; font-size: 1.1rem">
+              <h4 class="heading-spaced">
                 Skill Definition (SKILL.md)
               </h4>
               <div class="code-container">
@@ -2612,8 +2756,8 @@ Design and evaluate presentations that communicate effectively...
                     <line x1="9" y1="10" x2="16" y2="10" />
                   </svg>
                 </div>
-                <h4 style="margin: 0.5rem 0">Frameworks & Methods</h4>
-                <p style="margin-bottom: 1.5rem; font-size: 0.9rem">
+                <h4 class="spaced">Frameworks & Methods</h4>
+                <p class="desc">
                   Structured system design architectures.
                 </p>
               </div>
@@ -2628,7 +2772,7 @@ Design and evaluate presentations that communicate effectively...
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    style="flex-shrink: 0; margin-top: 0.2rem"
+                    class="shrink-align"
                   >
                     <circle cx="12" cy="12" r="10" />
                     <line x1="2" y1="12" x2="22" y2="12" />
@@ -2640,7 +2784,7 @@ Design and evaluate presentations that communicate effectively...
                     <a href="https://github.com/bmad-code-org/BMAD-METHOD"
                       >BMAD-METHOD</a
                     >
-                    <p style="font-size: 0.8rem; margin-top: 0.1rem">
+                    <p class="sub-desc">
                       Specialized AI sub-agents and structured planning specs.
                     </p>
                   </div>
@@ -2655,7 +2799,7 @@ Design and evaluate presentations that communicate effectively...
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    style="flex-shrink: 0; margin-top: 0.2rem"
+                    class="shrink-align"
                   >
                     <circle cx="12" cy="12" r="10" />
                     <line x1="2" y1="12" x2="22" y2="12" />
@@ -2667,7 +2811,7 @@ Design and evaluate presentations that communicate effectively...
                     <a href="https://github.com/github/spec-kit"
                       >github/spec-kit</a
                     >
-                    <p style="font-size: 0.8rem; margin-top: 0.1rem">
+                    <p class="sub-desc">
                       The blueprint toolkit for Spec-Driven Agentic Engineering.
                     </p>
                   </div>
@@ -2694,8 +2838,8 @@ Design and evaluate presentations that communicate effectively...
                     />
                   </svg>
                 </div>
-                <h4 style="margin: 0.5rem 0">Skill Sets</h4>
-                <p style="margin-bottom: 1.5rem; font-size: 0.9rem">
+                <h4 class="spaced">Skill Sets</h4>
+                <p class="desc">
                   Reusable scripts that sub-agents call.
                 </p>
               </div>
@@ -2710,7 +2854,7 @@ Design and evaluate presentations that communicate effectively...
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    style="flex-shrink: 0; margin-top: 0.2rem"
+                    class="shrink-align"
                   >
                     <circle cx="12" cy="12" r="10" />
                     <line x1="2" y1="12" x2="22" y2="12" />
@@ -2722,7 +2866,7 @@ Design and evaluate presentations that communicate effectively...
                     <a href="https://github.com/obra/superpowers"
                       >obra/superpowers</a
                     >
-                    <p style="font-size: 0.8rem; margin-top: 0.1rem">
+                    <p class="sub-desc">
                       Composable agentic skill sets built for CLI deployment.
                     </p>
                   </div>
@@ -2737,7 +2881,7 @@ Design and evaluate presentations that communicate effectively...
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    style="flex-shrink: 0; margin-top: 0.2rem"
+                    class="shrink-align"
                   >
                     <circle cx="12" cy="12" r="10" />
                     <line x1="2" y1="12" x2="22" y2="12" />
@@ -2749,7 +2893,7 @@ Design and evaluate presentations that communicate effectively...
                     <a href="https://github.com/mattpocock/skills"
                       >mattpocock/skills</a
                     >
-                    <p style="font-size: 0.8rem; margin-top: 0.1rem">
+                    <p class="sub-desc">
                       Minimalist, hyper-focused blocks of programmatic
                       execution.
                     </p>
@@ -2785,7 +2929,7 @@ Design and evaluate presentations that communicate effectively...
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  style="color: var(--accent)"
+                  class="accent-color"
                 >
                   <path
                     d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"
@@ -2797,19 +2941,19 @@ Design and evaluate presentations that communicate effectively...
               </h3>
               <ul class="list-unstyled">
                 <li>
-                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="accent-icon">
                     <use href="#icon-check"/>
                   </svg>
                   <a href="https://www.skills.sh/">skills.sh</a>
                 </li>
                 <li>
-                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="accent-icon">
                     <use href="#icon-check"/>
                   </svg>
                   <a href="https://skillsmp.com/">skillsmp.com</a>
                 </li>
                 <li>
-                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="accent-icon">
                     <use href="#icon-check"/>
                   </svg>
                   <a
@@ -2818,7 +2962,7 @@ Design and evaluate presentations that communicate effectively...
                   >
                 </li>
                 <li>
-                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="accent-icon">
                     <use href="#icon-check"/>
                   </svg>
                   <a href="https://github.com/affaan-m/everything-claude-code"
@@ -2826,7 +2970,7 @@ Design and evaluate presentations that communicate effectively...
                   >
                 </li>
                 <li>
-                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="accent-icon">
                     <use href="#icon-check"/>
                   </svg>
                   <a href="https://github.com/alirezarezvani/claude-skills"
@@ -2847,7 +2991,7 @@ Design and evaluate presentations that communicate effectively...
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  style="color: var(--accent)"
+                  class="accent-color"
                 >
                   <circle cx="12" cy="12" r="3" />
                   <path
@@ -2858,7 +3002,7 @@ Design and evaluate presentations that communicate effectively...
               </h3>
               <ul class="list-unstyled">
                 <li>
-                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="accent-icon">
                     <use href="#icon-check"/>
                   </svg>
                   <a href="https://github.com/vercel-labs/agent-skills"
@@ -2866,7 +3010,7 @@ Design and evaluate presentations that communicate effectively...
                   >
                 </li>
                 <li>
-                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="accent-icon">
                     <use href="#icon-check"/>
                   </svg>
                   <a href="https://github.com/github/awesome-copilot"
@@ -2874,7 +3018,7 @@ Design and evaluate presentations that communicate effectively...
                   >
                 </li>
                 <li>
-                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="accent-icon">
                     <use href="#icon-check"/>
                   </svg>
                   <a
@@ -2883,7 +3027,7 @@ Design and evaluate presentations that communicate effectively...
                   >
                 </li>
                 <li>
-                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="accent-icon">
                     <use href="#icon-check"/>
                   </svg>
                   <a href="https://github.com/wshobson/agents"
@@ -2891,7 +3035,7 @@ Design and evaluate presentations that communicate effectively...
                   >
                 </li>
                 <li>
-                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 0.3rem">
+                  <svg width="14" height="14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="accent-icon">
                     <use href="#icon-check"/>
                   </svg>
                   <a href="https://github.com/garrytan/gstack"
@@ -2920,44 +3064,15 @@ Design and evaluate presentations that communicate effectively...
           coordination.
         </h3>
         <div class="evidence">
-          <div
-            style="
-              display: flex;
-              flex-direction: column;
-              gap: 0.75rem;
-              align-items: center;
-              justify-content: center;
-              height: 100%;
-            "
-          >
+          <div class="flight-levels-container">
             <!-- Flight Level 3 -->
             <div
-              style="
-                width: 75%;
-                background: #fdfdfb;
-                border: 1px dashed var(--border);
-                border-radius: 12px;
-                padding: 1.25rem;
-                text-align: center;
-                position: relative;
-                transition: var(--transition);
-              "
+              class="flight-level-card level-3"
               onmouseover="this.style.borderColor = 'var(--text-muted)'"
               onmouseout="this.style.borderColor = 'var(--border)'"
             >
-              <h4
-                style="
-                  font-family: var(--font-serif);
-                  font-size: 1.15rem;
-                  color: var(--text-muted);
-                  margin-bottom: 0.25rem;
-                "
-              >
-                Flight Level 3: Strategy
-              </h4>
-              <p style="font-size: 0.85rem; color: var(--text-muted)">
-                Portfolio Management & Strategic Alignment
-              </p>
+              <h4>Flight Level 3: Strategy</h4>
+              <p>Portfolio Management & Strategic Alignment</p>
             </div>
 
             <!-- Up Arrow -->
@@ -2978,65 +3093,13 @@ Design and evaluate presentations that communicate effectively...
             </div>
 
             <!-- Flight Level 2 -->
-            <div
-              style="
-                width: 85%;
-                background: #fdf6f2;
-                border: 2px solid var(--primary);
-                border-radius: 12px;
-                padding: 1.75rem;
-                text-align: center;
-                position: relative;
-                box-shadow: 0 10px 25px rgba(191, 81, 55, 0.1);
-                transform: scale(1.02);
-                z-index: 10;
-              "
-            >
-              <div
-                style="
-                  position: absolute;
-                  top: -12px;
-                  left: 50%;
-                  transform: translateX(-50%);
-                  background: var(--primary);
-                  color: white;
-                  font-size: 0.65rem;
-                  font-weight: 800;
-                  letter-spacing: 0.1em;
-                  padding: 0.25rem 0.75rem;
-                  border-radius: 99px;
-                  text-transform: uppercase;
-                "
-              >
-                New Bottleneck
-              </div>
-              <h4
-                style="
-                  font-family: var(--font-serif);
-                  font-size: 1.45rem;
-                  color: var(--primary);
-                  margin-bottom: 0.5rem;
-                "
-              >
-                Flight Level 2: Coordination
-              </h4>
-              <p
-                style="
-                  font-size: 1rem;
-                  color: var(--text-main);
-                  font-weight: 500;
-                "
-              >
+            <div class="flight-level-card level-2">
+              <div class="flight-level-badge primary">New Bottleneck</div>
+              <h4>Flight Level 2: Coordination</h4>
+              <p class="subtitle">
                 End-to-End Value Stream & Team Interactions
               </p>
-              <p
-                style="
-                  font-size: 0.85rem;
-                  color: var(--text-muted);
-                  margin-top: 0.5rem;
-                  font-style: italic;
-                "
-              >
+              <p class="meta">
                 (Product Approval, QA, Ops, Cross-team Dependencies)
               </p>
             </div>
@@ -3059,36 +3122,8 @@ Design and evaluate presentations that communicate effectively...
             </div>
 
             <!-- Flight Level 1 -->
-            <div
-              style="
-                width: 100%;
-                background: var(--accent-light);
-                border: 2px solid rgba(58, 94, 78, 0.4);
-                border-radius: 12px;
-                padding: 1.5rem;
-                text-align: center;
-                position: relative;
-              "
-            >
-              <div
-                style="
-                  position: absolute;
-                  bottom: -12px;
-                  right: 20px;
-                  background: var(--accent);
-                  color: white;
-                  font-size: 0.65rem;
-                  font-weight: 800;
-                  letter-spacing: 0.1em;
-                  padding: 0.3rem 0.75rem;
-                  border-radius: 99px;
-                  text-transform: uppercase;
-                  display: flex;
-                  align-items: center;
-                  gap: 0.4rem;
-                  box-shadow: 0 4px 10px rgba(58, 94, 78, 0.2);
-                "
-              >
+            <div class="flight-level-card level-1">
+              <div class="flight-level-badge accent">
                 <svg
                   viewBox="0 0 24 24"
                   width="12"
@@ -3103,31 +3138,16 @@ Design and evaluate presentations that communicate effectively...
                 </svg>
                 AI Supercharged
               </div>
-              <h4
-                style="
-                  font-family: var(--font-serif);
-                  font-size: 1.25rem;
-                  color: var(--accent);
-                  margin-bottom: 0.5rem;
-                "
-              >
-                Flight Level 1: Operational
-              </h4>
-              <p style="font-size: 0.95rem; color: var(--text-main)">
-                Daily Team Execution & High-Speed Code Generation
-              </p>
+              <h4>Flight Level 1: Operational</h4>
+              <p>Daily Team Execution & High-Speed Code Generation</p>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Slide 14: Q&A Closing -->
-      <div
-        class="slide"
-        id="slide-14"
-        style="justify-content: center; align-items: center; text-align: center"
-      >
-        <div class="slide-header" style="width: 100%">
+      <div class="slide slide-centered" id="slide-14">
+        <div class="slide-header">
           <span class="topic-tag">
             <svg class="inline-star" width="14" height="14" fill="currentColor">
               <use href="#icon-star"/>
@@ -3136,37 +3156,9 @@ Design and evaluate presentations that communicate effectively...
           </span>
           <span>Slide 14 / 14</span>
         </div>
-        <div
-          class="evidence"
-          style="
-            align-items: center;
-            justify-content: center;
-            max-width: 600px;
-            margin: 0 auto;
-          "
-        >
-          <h2
-            style="
-              font-family: var(--font-serif);
-              font-size: 3.5rem;
-              font-weight: 500;
-              color: var(--primary);
-              margin-bottom: 1rem;
-            "
-          >
-            Q&A
-          </h2>
-          <p
-            style="
-              font-size: 0.9rem;
-              letter-spacing: 0.05em;
-              text-transform: uppercase;
-              color: var(--text-muted);
-              font-weight: 700;
-            "
-          >
-            Thank you for attending.
-          </p>
+        <div class="evidence qa-evidence">
+          <h2>Q&A</h2>
+          <p>Thank you for attending.</p>
         </div>
       </div>
     </div>
