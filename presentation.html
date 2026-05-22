@@ -55,18 +55,19 @@
       /* Navigation & Control Panel */
       .deck-controls {
         position: fixed;
-        bottom: 2rem;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
         background: rgba(255, 255, 255, 0.92);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border: 1px solid var(--border);
         border-radius: 999px;
-        padding: 0.5rem 1.5rem;
+        padding: 1.25rem 0.5rem;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
+        gap: 1.25rem;
         box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
         z-index: 1000;
         transition: var(--transition);
@@ -113,6 +114,65 @@
         cursor: not-allowed;
       }
 
+      .btn-nav {
+        background: transparent;
+        border: none;
+        color: var(--text-main);
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+        padding: 0;
+      }
+
+      .btn-nav:hover {
+        background: var(--primary-light);
+        color: var(--primary);
+      }
+
+      .btn-nav:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+
+      .prev-icon,
+      .next-icon {
+        transition: var(--transition);
+      }
+
+      .slide-counter-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: var(--font-serif);
+        font-style: italic;
+        color: var(--text-muted);
+        text-align: center;
+        user-select: none;
+      }
+
+      .slide-counter-curr {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .slide-counter-divider {
+        width: 14px;
+        height: 1px;
+        background-color: var(--border);
+        margin: 0.2rem 0;
+      }
+
+      .slide-counter-total {
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+
       .view-modes {
         display: flex;
         border-right: 1px solid var(--border);
@@ -144,6 +204,12 @@
         margin: 0 auto;
         padding: 4rem 2rem 8rem 2rem;
         transition: var(--transition);
+      }
+
+      @media (min-width: 769px) {
+        .presentation-container {
+          padding-left: 8rem;
+        }
       }
 
       /* Slide Card Base Style */
@@ -946,10 +1012,40 @@
           transform: none !important;
         }
         .deck-controls {
-          width: 95%;
+          position: fixed;
+          bottom: 1.5rem;
+          left: 50%;
+          top: auto;
+          transform: translateX(-50%);
+          width: 90%;
+          max-width: 320px;
+          flex-direction: row;
           justify-content: space-between;
-          padding: 0.5rem 1rem;
-          bottom: 1rem;
+          padding: 0.5rem 0.75rem;
+          border-radius: 999px;
+          gap: 1rem;
+        }
+        .prev-icon {
+          transform: rotate(-90deg);
+        }
+        .next-icon {
+          transform: rotate(-90deg);
+        }
+        .slide-counter-wrapper {
+          flex-direction: row;
+          align-items: center;
+          gap: 0.25rem;
+        }
+        .slide-counter-divider {
+          width: auto;
+          height: auto;
+          background-color: transparent;
+          margin: 0;
+        }
+        .slide-counter-divider::before {
+          content: "/";
+          color: var(--text-muted);
+          margin: 0 0.1rem;
         }
         .view-modes {
           display: none;
@@ -1359,44 +1455,22 @@
     </svg>
 
     <!-- Floating Presentation Control Bar -->
-    <div class="deck-controls" style="justify-content: center">
-      <div style="display: flex; align-items: center; gap: 0.5rem">
-        <button class="btn" id="btn-prev" onclick="navigateSlide(-1)" disabled>
-          <svg
-            viewBox="0 0 24 24"
-            width="16"
-            height="16"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            style="display: inline-block; vertical-align: middle"
-          >
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
-          Prev
-        </button>
-        <span class="slide-counter" id="slide-tracker">Slide 1 of 14</span>
-        <button class="btn" id="btn-next" onclick="navigateSlide(1)">
-          Next
-          <svg
-            viewBox="0 0 24 24"
-            width="16"
-            height="16"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            style="display: inline-block; vertical-align: middle"
-          >
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </button>
+    <div class="deck-controls">
+      <button class="btn-nav" id="btn-prev" onclick="navigateSlide(-1)" disabled aria-label="Previous Slide">
+        <svg class="prev-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </button>
+      <div class="slide-counter-wrapper">
+        <span class="slide-counter-curr" id="slide-curr">01</span>
+        <span class="slide-counter-divider"></span>
+        <span class="slide-counter-total" id="slide-total">14</span>
       </div>
+      <button class="btn-nav" id="btn-next" onclick="navigateSlide(1)" aria-label="Next Slide">
+        <svg class="next-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
     </div>
 
     <!-- Slides Presentation Container -->
@@ -3225,8 +3299,10 @@ Design and evaluate presentations that communicate effectively...
 
       // Update State Indicators, Button Toggles
       function updateProgress() {
-        document.getElementById("slide-tracker").textContent =
-          `Slide ${currentSlide} of ${totalSlides}`;
+        const slideCurrEl = document.getElementById("slide-curr");
+        if (slideCurrEl) {
+          slideCurrEl.textContent = currentSlide.toString().padStart(2, "0");
+        }
         document.getElementById("btn-prev").disabled = currentSlide === 1;
         document.getElementById("btn-next").disabled =
           currentSlide === totalSlides;
