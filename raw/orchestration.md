@@ -1,6 +1,10 @@
 # Agent Orchestration & Subagents: ทำไมต้องมี Agent หลายตัว? (Topic 7)
 
 - การแบ่งงานให้ Specialist (Subagent) และมีตัวคุม (Orchestrator)
+  - **User:** Human Pilot
+  - **Orchestrator:** Central Brain
+  - **Implementer:** Specialist Worker
+  - **Debugger:** Specialist Worker
 
 # Asynchronous Workflow: (Topic 8)
 
