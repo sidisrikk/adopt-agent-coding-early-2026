@@ -1679,9 +1679,585 @@
         color: var(--text-muted);
         font-weight: 700;
       }
+      .qa-portal {
+        margin-top: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        background: var(--bg-page);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem 2rem;
+        box-shadow: 0 4px 12px rgba(43, 38, 33, 0.03);
+      }
+      .qa-portal-label {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        font-weight: 600;
+      }
+      .qa-portal-link {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 1.15rem;
+        color: var(--primary);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: var(--transition);
+        border-bottom: 2px solid transparent;
+        padding-bottom: 2px;
+      }
+      .qa-portal-link:hover {
+        color: #a33f27;
+        border-color: #a33f27;
+        transform: translateY(-1px);
+      }
+
+      /* ==========================================================================
+         VISUAL PROGRESS TRACKER
+         ========================================================================== */
+      .progress-tracker {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(247, 244, 239, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0.75rem 2rem;
+        z-index: 999;
+        font-family: var(--font-sans);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      }
+
+      .tracker-step {
+        color: var(--text-muted);
+        position: relative;
+        padding-bottom: 0.25rem;
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+
+      .tracker-step::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: transparent;
+        transition: var(--transition);
+      }
+
+      .tracker-step.active {
+        color: var(--primary);
+      }
+
+      .tracker-step.active::after {
+        background: var(--primary);
+      }
+
+      /* Adjust body top padding for fixed progress tracker */
+      body {
+        padding-top: 3.5rem;
+      }
+
+      /* Adjust presentation-container when sidebar is active */
+      .presentation-container.notes-active {
+        width: 65%;
+        margin-left: 5%;
+        margin-right: 30%;
+      }
+
+      @media (max-width: 1200px) {
+        .presentation-container.notes-active {
+          width: 60%;
+          margin-left: 2%;
+          margin-right: 38%;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .presentation-container.notes-active {
+          width: 80%;
+          margin: 0 auto;
+        }
+      }
+
+      /* ==========================================================================
+         SPEAKER NOTES SIDEBAR
+         ========================================================================== */
+      .notes-sidebar {
+        position: fixed;
+        top: 3.5rem;
+        right: -30%;
+        width: 25%;
+        height: calc(100vh - 3.5rem);
+        background: #ffffff;
+        border-left: 1px solid var(--border);
+        box-shadow: -10px 0 30px rgba(43, 38, 33, 0.05);
+        z-index: 998;
+        transition: var(--transition);
+        padding: 2rem;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        box-sizing: border-box;
+      }
+
+      .notes-sidebar.active {
+        right: 0;
+      }
+
+      @media (max-width: 1200px) {
+        .notes-sidebar {
+          width: 35%;
+          right: -40%;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .notes-sidebar {
+          width: 80%;
+          right: -85%;
+          z-index: 1100; /* overlay on small screens */
+        }
+        .notes-sidebar.active {
+          right: 0;
+        }
+      }
+
+      .notes-sidebar-header {
+        border-bottom: 2px solid var(--border);
+        padding-bottom: 0.75rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .notes-sidebar-header h3 {
+        font-family: var(--font-sans);
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--primary);
+        font-weight: 800;
+        margin: 0;
+      }
+
+      .notes-close-btn {
+        background: transparent;
+        border: none;
+        color: var(--text-muted);
+        cursor: pointer;
+        font-size: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.25rem;
+        border-radius: 50%;
+        transition: var(--transition);
+      }
+
+      .notes-close-btn:hover {
+        background: var(--primary-light);
+        color: var(--primary);
+      }
+
+      .notes-meta-box {
+        background: var(--bg-page);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .notes-meta-item {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        color: var(--text-main);
+      }
+
+      .notes-meta-label {
+        font-weight: 700;
+        color: var(--text-muted);
+      }
+
+      .notes-meta-val {
+        font-family: var(--font-sans);
+        font-weight: 600;
+      }
+
+      .notes-priority-badge {
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        padding: 0.15rem 0.45rem;
+        border-radius: 4px;
+        letter-spacing: 0.05em;
+      }
+
+      .notes-priority-badge.essential {
+        background: rgba(191, 81, 55, 0.1);
+        color: var(--primary);
+        border: 1px solid rgba(191, 81, 55, 0.2);
+      }
+
+      .notes-priority-badge.standard {
+        background: rgba(43, 38, 33, 0.06);
+        color: var(--text-main);
+        border: 1px solid var(--border);
+      }
+
+      .notes-priority-badge.expandable {
+        background: rgba(58, 94, 78, 0.1);
+        color: var(--accent);
+        border: 1px solid rgba(58, 94, 78, 0.2);
+      }
+
+      .notes-talking-points h4 {
+        font-family: var(--font-serif);
+        font-size: 1rem;
+        color: var(--text-main);
+        margin-bottom: 0.75rem;
+        border-left: 3px solid var(--primary);
+        padding-left: 0.5rem;
+      }
+
+      .notes-points-list {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        padding-left: 1.25rem;
+      }
+
+      .notes-points-list li {
+        margin-bottom: 0.6rem;
+      }
+
+      /* ==========================================================================
+         SLIDE SORTER (GRID OVERLAY)
+         ========================================================================== */
+      .slide-sorter-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(247, 244, 239, 0.98);
+        z-index: 2000;
+        display: none;
+        flex-direction: column;
+        padding: 3rem 4rem;
+        box-sizing: border-box;
+        overflow-y: auto;
+      }
+
+      .slide-sorter-overlay.active {
+        display: flex;
+      }
+
+      .slide-sorter-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 1rem;
+      }
+
+      .slide-sorter-header h2 {
+        font-family: var(--font-serif);
+        font-size: 2rem;
+        font-weight: 500;
+        color: var(--text-main);
+        margin: 0;
+      }
+
+      .slide-sorter-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .sorter-card {
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 1rem;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 140px;
+        position: relative;
+      }
+
+      .sorter-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(191, 81, 55, 0.08);
+        border-color: var(--primary);
+      }
+
+      .sorter-card.current {
+        border: 2px solid var(--primary);
+        background: var(--primary-light);
+      }
+
+      .sorter-card-header {
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
+      }
+
+      .sorter-card-title {
+        font-family: var(--font-serif);
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--text-main);
+        line-height: 1.3;
+        margin: 0;
+      }
+
+      .sorter-card-footer {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text-muted);
+        text-align: right;
+        margin-top: 1rem;
+      }
+
+      /* Slide Sorter trigger button style in deck-controls */
+      .btn-sorter {
+        position: relative;
+      }
+
+      /* ==========================================================================
+         SLIDE 6 INTERACTIVE TAB FILTERS
+         ========================================================================== */
+      .tactic-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .tactic-tab-btn {
+        background: #ffffff;
+        border: 1px solid var(--border);
+        color: var(--text-main);
+        cursor: pointer;
+        padding: 0.6rem 1.25rem;
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 0.8rem;
+        border-radius: 99px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: var(--transition);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+      }
+
+      .tactic-tab-btn:hover {
+        background: var(--primary-light);
+        border-color: rgba(191, 81, 55, 0.3);
+        color: var(--primary);
+      }
+
+      .tactic-tab-btn.active {
+        background: var(--primary);
+        color: #ffffff;
+        border-color: var(--primary);
+        box-shadow: 0 4px 10px rgba(191, 81, 55, 0.2);
+      }
+
+      /* Hide tactics not in group */
+      .tactic-card {
+        transition:
+          opacity 0.35s ease,
+          transform 0.35s ease,
+          border-color 0.35s ease;
+      }
+
+      .tactic-card.inactive {
+        opacity: 0.15;
+        pointer-events: none;
+        transform: scale(0.95);
+      }
+
+      /* ==========================================================================
+         SLIDE 9 Markdown Code highlights
+         ========================================================================== */
+      .code-pre code {
+        display: block;
+        width: 100%;
+      }
+
+      .code-line-highlight {
+        background: rgba(191, 81, 55, 0.08);
+        border-left: 3px solid var(--primary);
+        display: inline-block;
+        width: 100%;
+        margin-left: -0.5rem;
+        padding-left: 0.5rem;
+      }
+
+      /* ==========================================================================
+         RESTRUCTURED SLIDE 11 & 12 DASHBOARDS
+         ========================================================================== */
+      .dashboard-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 1rem;
+      }
+
+      .dashboard-card {
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .dashboard-card-title {
+        font-family: var(--font-serif);
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: var(--primary);
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-bottom: 2px solid var(--border);
+        padding-bottom: 0.5rem;
+      }
+
+      .dashboard-card.accent-dashboard .dashboard-card-title {
+        color: var(--accent);
+      }
+
+      .dashboard-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .dashboard-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px dashed var(--border);
+      }
+
+      .dashboard-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .dashboard-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .dashboard-item-link {
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--text-main);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .dashboard-item-link:hover {
+        color: var(--primary);
+        text-decoration: underline;
+      }
+
+      .dashboard-card.accent-dashboard .dashboard-item-link:hover {
+        color: var(--accent);
+      }
+
+      .dashboard-item-tag {
+        font-size: 0.6rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        padding: 0.15rem 0.4rem;
+        border-radius: 4px;
+        letter-spacing: 0.05em;
+      }
+
+      .dashboard-item-tag.method {
+        background: rgba(191, 81, 55, 0.1);
+        color: var(--primary);
+        border: 1px solid rgba(191, 81, 55, 0.15);
+      }
+
+      .dashboard-item-tag.skill {
+        background: rgba(58, 94, 78, 0.1);
+        color: var(--accent);
+        border: 1px solid rgba(58, 94, 78, 0.15);
+      }
+
+      .dashboard-item-desc {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.4;
+        margin: 0;
+      }
     </style>
   </head>
   <body class="view-scroll">
+    <!-- Top Visual Progress Tracker -->
+    <div class="progress-tracker" id="progress-tracker">
+      <div class="tracker-step" data-target="1" data-section="overview">
+        Strategic Overview
+      </div>
+      <div class="tracker-step" data-target="2" data-section="concepts">
+        Core Concepts
+      </div>
+      <div class="tracker-step" data-target="4" data-section="context">
+        Context &amp; Engine
+      </div>
+      <div class="tracker-step" data-target="7" data-section="architecture">
+        Architecture
+      </div>
+      <div class="tracker-step" data-target="11" data-section="ecosystem">
+        Ecosystem
+      </div>
+      <div class="tracker-step" data-target="14" data-section="discussion">
+        Discussion
+      </div>
+    </div>
+
     <!-- SVG Sprite sheet for consolidated icons -->
     <svg style="display: none">
       <symbol id="icon-star" viewBox="0 0 24 24">
@@ -1743,6 +2319,70 @@
         />
         <polyline points="18 1 18 5 22 5" />
       </symbol>
+      <symbol id="icon-notes" viewBox="0 0 24 24">
+        <path
+          d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="icon-grid" viewBox="0 0 24 24">
+        <rect
+          x="3"
+          y="3"
+          width="7"
+          height="7"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+        <rect
+          x="14"
+          y="3"
+          width="7"
+          height="7"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+        <rect
+          x="14"
+          y="14"
+          width="7"
+          height="7"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+        <rect
+          x="3"
+          y="14"
+          width="7"
+          height="7"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol
+        id="icon-github"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+        />
+      </symbol>
     </svg>
 
     <!-- Floating Presentation Control Bar -->
@@ -1793,12 +2433,118 @@
           <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
       </button>
+      <span class="slide-counter-divider"></span>
+      <!-- Toggle Sorter Button -->
+      <button
+        class="btn-nav btn-sorter"
+        id="btn-sorter"
+        onclick="toggleSlideSorter()"
+        aria-label="Toggle Slide Sorter (O)"
+        title="Slide Sorter (O)"
+      >
+        <svg
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <use href="#icon-grid" />
+        </svg>
+      </button>
+      <!-- Toggle Speaker Notes Button -->
+      <button
+        class="btn-nav"
+        id="btn-notes"
+        onclick="toggleSpeakerNotes()"
+        aria-label="Toggle Speaker Notes (N)"
+        title="Speaker Notes (N)"
+      >
+        <svg
+          width="20"
+          height="20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <use href="#icon-notes" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Speaker Notes Sidebar -->
+    <div class="notes-sidebar" id="notes-sidebar">
+      <div class="notes-sidebar-header">
+        <h3>Presenter Notes</h3>
+        <button
+          class="notes-close-btn"
+          onclick="toggleSpeakerNotes()"
+          aria-label="Close notes"
+        >
+          &times;
+        </button>
+      </div>
+      <div class="notes-meta-box">
+        <div class="notes-meta-item">
+          <span class="notes-meta-label">Slide Timing:</span>
+          <span class="notes-meta-val" id="notes-timing">2 min</span>
+        </div>
+        <div class="notes-meta-item">
+          <span class="notes-meta-label">Cumulative Time:</span>
+          <span class="notes-meta-val" id="notes-cumulative">2 min</span>
+        </div>
+        <div class="notes-meta-item">
+          <span class="notes-meta-label">Priority:</span>
+          <span class="notes-priority-badge essential" id="notes-priority"
+            >Essential</span
+          >
+        </div>
+      </div>
+      <div class="notes-talking-points">
+        <h4>Key Talking Points</h4>
+        <ul class="notes-points-list" id="notes-points">
+          <li>Introduce the presentation title and speaker.</li>
+          <li>
+            Establish the key focus: moving from auto-complete to autonomous
+            agent workflows.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Slide Sorter Overlay -->
+    <div class="slide-sorter-overlay" id="slide-sorter-overlay">
+      <div class="slide-sorter-header">
+        <h2>Slide Deck Overview</h2>
+        <button
+          class="notes-close-btn"
+          onclick="toggleSlideSorter()"
+          style="font-size: 1.5rem"
+          aria-label="Close overview"
+        >
+          &times;
+        </button>
+      </div>
+      <div class="slide-sorter-grid" id="slide-sorter-grid">
+        <!-- Rendered dynamically by script -->
+      </div>
     </div>
 
     <!-- Slides Presentation Container -->
     <div class="presentation-container" id="deck-container">
       <!-- Slide 1: Introduction Cover -->
-      <div class="slide slide-cover" id="slide-1">
+      <div
+        class="slide slide-cover"
+        id="slide-1"
+        data-notes-timing="1"
+        data-notes-cumulative="1"
+        data-notes-priority="essential"
+        data-notes-points="Welcome the audience and introduce the topic: Adopting Agentic Coding;Explain that we are moving beyond simple autocomplete (Level 1/2) to collaborative, autonomous workflows (Level 3/4)"
+      >
         <div class="slide-header">
           <span class="topic-tag">
             <svg class="inline-star" width="14" height="14" fill="currentColor">
@@ -1816,7 +2562,14 @@
       </div>
 
       <!-- Slide 2: The Levels of AI Coding -->
-      <div class="slide" id="slide-2">
+      <div
+        class="slide"
+        id="slide-2"
+        data-notes-timing="3"
+        data-notes-cumulative="4"
+        data-notes-priority="essential"
+        data-notes-points="Define the 4 capability levels: L1 (Completion), L2 (Chat), L3 (Command), L4 (Background);Highlight L3 'Command' as the critical pivot where agents edit files directly;Emphasize that transitioning to L3 requires deep software engineering discipline and verification harness"
+      >
         <div class="slide-header">
           <span class="topic-tag">
             <svg class="inline-star" width="14" height="14" fill="currentColor">
@@ -1905,7 +2658,14 @@
       </div>
 
       <!-- Slide 3: Collaboration Mechanics -->
-      <div class="slide" id="slide-3">
+      <div
+        class="slide"
+        id="slide-3"
+        data-notes-timing="2.5"
+        data-notes-cumulative="6.5"
+        data-notes-priority="essential"
+        data-notes-points="Explain the workflow cycle between Human-in-the-Loop (HITL) and Away-from-Keyboard (AFK);Align on spec and slice tickets (HITL) -> Let agents execute the inner loop and QA (AFK) -> Final review (HITL);Keep human context focused on validation and intent, not typing"
+      >
         <div class="slide-header">
           <span class="topic-tag">
             <svg class="inline-star" width="14" height="14" fill="currentColor">
@@ -2123,7 +2883,14 @@
       </div>
 
       <!-- Slide 4: Anatomy of a Context Window -->
-      <div class="slide" id="slide-4">
+      <div
+        class="slide"
+        id="slide-4"
+        data-notes-timing="2"
+        data-notes-cumulative="8.5"
+        data-notes-priority="standard"
+        data-notes-points="Explain that a context window consists of input/output tokens;Point out that the user's actual question is only a tiny fraction of the total window;Most tokens are consumed by codebase context, system prompts, and tools"
+      >
         <div class="slide-header">
           <span class="topic-tag">
             <svg class="inline-star" width="14" height="14" fill="currentColor">
@@ -2147,7 +2914,14 @@
       </div>
 
       <!-- Slide 5: Lost in the Middle -->
-      <div class="slide" id="slide-5">
+      <div
+        class="slide"
+        id="slide-5"
+        data-notes-timing="2"
+        data-notes-cumulative="10.5"
+        data-notes-priority="essential"
+        data-notes-points="Introduce the 'Lost in the Middle' cognitive limitation of LLMs;Explain the U-shaped attention curve where start and end have highest impact;Highlight how middle contents are easily forgotten or hallucinated in long chats"
+      >
         <div class="slide-header">
           <span class="topic-tag">
             <svg class="inline-star" width="14" height="14" fill="currentColor">
@@ -2170,7 +2944,14 @@
       </div>
 
       <!-- Slide 6: Tactics -->
-      <div class="slide" id="slide-6">
+      <div
+        class="slide"
+        id="slide-6"
+        data-notes-timing="3"
+        data-notes-cumulative="13.5"
+        data-notes-priority="essential"
+        data-notes-points="Discuss context management tactics to keep the window clean;Highlight Cutover (clearing history when changing tasks) and Handoff;Briefly explain Sidenotes, Caveman style, and sliding window techniques to minimize noise"
+      >
         <div class="slide-header">
           <span class="topic-tag">
             <svg class="inline-star" width="14" height="14" fill="currentColor">
@@ -2184,9 +2965,26 @@
           Help your AI maintain sharp focus and completely avoid hallucinations.
         </h3>
         <div class="evidence">
+          <div class="tactic-tabs">
+            <button
+              class="tactic-tab-btn active"
+              onclick="filterTactics('all')"
+            >
+              All Tactics
+            </button>
+            <button class="tactic-tab-btn" onclick="filterTactics('cleanup')">
+              Context Cleanup
+            </button>
+            <button class="tactic-tab-btn" onclick="filterTactics('commands')">
+              Commands &amp; Structure
+            </button>
+            <button class="tactic-tab-btn" onclick="filterTactics('memory')">
+              Advanced Memory
+            </button>
+          </div>
           <div class="grid-5">
             <!-- Tactics Card 1: Cutover -->
-            <div class="card tactic-card">
+            <div class="card tactic-card" data-tactic-group="cleanup">
               <div class="icon-wrapper">
                 <svg
                   viewBox="0 0 24 24"
@@ -2211,7 +3009,7 @@
             </div>
 
             <!-- Tactics Card 2: Handoff -->
-            <div class="card tactic-card">
+            <div class="card tactic-card" data-tactic-group="cleanup">
               <div class="icon-wrapper">
                 <svg
                   viewBox="0 0 24 24"
@@ -2251,7 +3049,7 @@
             </div>
 
             <!-- Tactics Card 3: Compaction -->
-            <div class="card tactic-card">
+            <div class="card tactic-card" data-tactic-group="cleanup">
               <div class="icon-wrapper">
                 <svg
                   viewBox="0 0 24 24"
@@ -2281,7 +3079,7 @@
             </div>
 
             <!-- Tactics Card 4: Caveman -->
-            <div class="card tactic-card">
+            <div class="card tactic-card" data-tactic-group="commands">
               <div class="icon-wrapper">
                 <svg
                   viewBox="0 0 24 24"
@@ -2306,7 +3104,7 @@
             </div>
 
             <!-- Tactics Card 5: Sidenotes -->
-            <div class="card tactic-card">
+            <div class="card tactic-card" data-tactic-group="memory">
               <div class="icon-wrapper">
                 <svg
                   viewBox="0 0 24 24"
@@ -2348,7 +3146,7 @@
             </div>
 
             <!-- Tactics Card 6: Tiered Memory -->
-            <div class="card tactic-card">
+            <div class="card tactic-card" data-tactic-group="memory">
               <div class="icon-wrapper">
                 <svg
                   viewBox="0 0 24 24"
@@ -2397,7 +3195,7 @@
             </div>
 
             <!-- Tactics Card 7: Command Compression -->
-            <div class="card tactic-card">
+            <div class="card tactic-card" data-tactic-group="commands">
               <div class="icon-wrapper">
                 <svg
                   viewBox="0 0 24 24"
@@ -2436,7 +3234,7 @@
             </div>
 
             <!-- Tactics Card 8: Decomposition -->
-            <div class="card tactic-card">
+            <div class="card tactic-card" data-tactic-group="commands">
               <div class="icon-wrapper">
                 <svg
                   viewBox="0 0 24 24"
@@ -2491,7 +3289,7 @@
             </div>
 
             <!-- Tactics Card 9: Scale Context -->
-            <div class="card tactic-card">
+            <div class="card tactic-card" data-tactic-group="memory">
               <div class="icon-wrapper">
                 <svg
                   viewBox="0 0 24 24"
@@ -2531,7 +3329,7 @@
             </div>
 
             <!-- Tactics Card 10: Sliding Window -->
-            <div class="card tactic-card">
+            <div class="card tactic-card" data-tactic-group="cleanup">
               <div class="icon-wrapper">
                 <svg
                   viewBox="0 0 24 24"
@@ -2602,7 +3400,14 @@
       </div>
 
       <!-- Slide 7: Agentic Architecture -->
-      <div class="slide" id="slide-7">
+      <div
+        class="slide"
+        id="slide-7"
+        data-notes-timing="2.5"
+        data-notes-cumulative="16"
+        data-notes-priority="essential"
+        data-notes-points="Introduce the Orchestrator-Workers design pattern;The central Orchestrator plans, handles intent, and delegates to specialized sub-agents;Specialists (Implementer, Debugger) perform narrow tasks to avoid cognitive clutter"
+      >
         <div class="slide-header">
           <span class="topic-tag">
             <svg class="inline-star" width="14" height="14" fill="currentColor">
@@ -2767,7 +3572,14 @@
       </div>
 
       <!-- Slide 8: Knowledge Transfers -->
-      <div class="slide" id="slide-8">
+      <div
+        class="slide"
+        id="slide-8"
+        data-notes-timing="2"
+        data-notes-cumulative="18"
+        data-notes-priority="standard"
+        data-notes-points="Shift focus from writing code to writing clear specifications and docs;Explain that the metric of a doc is alignment speed, not generation speed;Use machine-readable artifacts (system prompts, plans, task checklists)"
+      >
         <div class="slide-header">
           <span class="topic-tag">
             <svg
@@ -2930,7 +3742,14 @@
       </div>
 
       <!-- Slide 9: Specialized Skills -->
-      <div class="slide" id="slide-9">
+      <div
+        class="slide"
+        id="slide-9"
+        data-notes-timing="2"
+        data-notes-cumulative="20"
+        data-notes-priority="essential"
+        data-notes-points="Define 'Skills' as structured directories containing instruction specs and scripts;Walk through the folder layout (.agents/skills/...);Show how a skill definition includes name, description, mode, and purpose"
+      >
         <div class="slide-header">
           <span class="topic-tag">
             <svg class="inline-star" width="14" height="14" fill="currentColor">
@@ -3033,7 +3852,14 @@ Design and evaluate presentations that communicate effectively...
       </div>
 
       <!-- Slide 10: Harness Engineering -->
-      <div class="slide" id="slide-10">
+      <div
+        class="slide"
+        id="slide-10"
+        data-notes-timing="3"
+        data-notes-cumulative="23"
+        data-notes-priority="essential"
+        data-notes-points="Introduce the concept of a safety harness: bounding non-deterministic LLMs;Guides constrain inputs (System prompts, tools, context pinning);Sensors check output deterministically (Linters, type checkers, tests)"
+      >
         <div class="slide-header">
           <span class="topic-tag">
             <svg class="inline-star" width="14" height="14" fill="currentColor">
@@ -3555,7 +4381,14 @@ Design and evaluate presentations that communicate effectively...
       </div>
 
       <!-- Slide 11: Frameworks & Ecosystem -->
-      <div class="slide" id="slide-11">
+      <div
+        class="slide"
+        id="slide-11"
+        data-notes-timing="2"
+        data-notes-cumulative="25"
+        data-notes-priority="standard"
+        data-notes-points="Encourage adopting battle-tested open-source frameworks;Mention BMAD-METHOD and github/spec-kit for structured specs;Mention obra/superpowers and mattpocock/skills for CLI capability sets"
+      >
         <div class="slide-header">
           <span class="topic-tag">
             <svg class="inline-star" width="14" height="14" fill="currentColor">
@@ -3570,176 +4403,122 @@ Design and evaluate presentations that communicate effectively...
           workflows.
         </h3>
         <div class="evidence">
-          <div class="grid-2">
+          <div class="dashboard-grid">
             <!-- Column 1: Frameworks & Methods -->
-            <div class="card">
-              <div>
-                <div class="icon-wrapper">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="32"
-                    height="32"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                    <path
-                      d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
-                    />
-                    <line x1="9" y1="6" x2="16" y2="6" />
-                    <line x1="9" y1="10" x2="16" y2="10" />
-                  </svg>
-                </div>
-                <h4 class="spaced">Frameworks & Methods</h4>
-                <p class="desc">Structured system design architectures.</p>
-              </div>
-              <ul class="list-unstyled">
-                <li>
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="var(--primary)"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="shrink-align"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="2" y1="12" x2="22" y2="12" />
-                    <path
-                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                    />
-                  </svg>
-                  <div>
-                    <a href="https://github.com/bmad-code-org/BMAD-METHOD"
+            <div class="dashboard-card">
+              <h4 class="dashboard-card-title">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="22"
+                  height="22"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                  <path
+                    d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                  />
+                </svg>
+                Standards &amp; Blueprints
+              </h4>
+              <div class="dashboard-list">
+                <div class="dashboard-item">
+                  <div class="dashboard-item-header">
+                    <a
+                      href="https://github.com/bmad-code-org/BMAD-METHOD"
+                      class="dashboard-item-link"
                       >BMAD-METHOD</a
                     >
-                    <p class="sub-desc">
-                      Specialized AI sub-agents and structured planning specs.
-                    </p>
+                    <span class="dashboard-item-tag method">Architecture</span>
                   </div>
-                </li>
-                <li>
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="var(--primary)"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="shrink-align"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="2" y1="12" x2="22" y2="12" />
-                    <path
-                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                    />
-                  </svg>
-                  <div>
-                    <a href="https://github.com/github/spec-kit"
+                  <p class="dashboard-item-desc">
+                    Structured methodology defining sub-agent cognitive
+                    boundaries and project specifications.
+                  </p>
+                </div>
+                <div class="dashboard-item">
+                  <div class="dashboard-item-header">
+                    <a
+                      href="https://github.com/github/spec-kit"
+                      class="dashboard-item-link"
                       >github/spec-kit</a
                     >
-                    <p class="sub-desc">
-                      The blueprint toolkit for Spec-Driven Agentic Engineering.
-                    </p>
+                    <span class="dashboard-item-tag method">Specification</span>
                   </div>
-                </li>
-              </ul>
+                  <p class="dashboard-item-desc">
+                    The open-source specification and schema toolkit for
+                    build-time validation and compliance.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <!-- Column 2: Skill Sets -->
-            <div class="card accent-card">
-              <div>
-                <div class="icon-wrapper">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="32"
-                    height="32"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path
-                      d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
-                    />
-                  </svg>
-                </div>
-                <h4 class="spaced">Skill Sets</h4>
-                <p class="desc">Reusable scripts that sub-agents call.</p>
-              </div>
-              <ul class="list-unstyled">
-                <li>
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="shrink-align"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="2" y1="12" x2="22" y2="12" />
-                    <path
-                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                    />
-                  </svg>
-                  <div>
-                    <a href="https://github.com/obra/superpowers"
+            <div class="dashboard-card accent-dashboard">
+              <h4 class="dashboard-card-title">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="22"
+                  height="22"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                  />
+                </svg>
+                Reusable Skills
+              </h4>
+              <div class="dashboard-list">
+                <div class="dashboard-item">
+                  <div class="dashboard-item-header">
+                    <a
+                      href="https://github.com/obra/superpowers"
+                      class="dashboard-item-link"
                       >obra/superpowers</a
                     >
-                    <p class="sub-desc">
-                      Composable agentic skill sets built for CLI deployment.
-                    </p>
+                    <span class="dashboard-item-tag skill">Skillset Pack</span>
                   </div>
-                </li>
-                <li>
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="16"
-                    height="16"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="shrink-align"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="2" y1="12" x2="22" y2="12" />
-                    <path
-                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                    />
-                  </svg>
-                  <div>
-                    <a href="https://github.com/mattpocock/skills"
+                  <p class="dashboard-item-desc">
+                    Composable script libraries extending CLI capabilities for
+                    file search, refactoring, and integration.
+                  </p>
+                </div>
+                <div class="dashboard-item">
+                  <div class="dashboard-item-header">
+                    <a
+                      href="https://github.com/mattpocock/skills"
+                      class="dashboard-item-link"
                       >mattpocock/skills</a
                     >
-                    <p class="sub-desc">
-                      Minimalist, hyper-focused blocks of programmatic
-                      execution.
-                    </p>
+                    <span class="dashboard-item-tag skill">Specialist CLI</span>
                   </div>
-                </li>
-              </ul>
+                  <p class="dashboard-item-desc">
+                    Hyper-focused, single-responsibility scripts that execute
+                    common TypeScript transformations and tests.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Slide 12: Marketplace Ecosystem -->
-      <div class="slide" id="slide-12">
+      <div
+        class="slide"
+        id="slide-12"
+        data-notes-timing="2"
+        data-notes-cumulative="27"
+        data-notes-priority="expandable"
+        data-notes-points="Highlight public skill registries: skills.sh, skillsmp.com;Mention awesome-lists and community repositories for Claude Code and other models;Showcase enterprise-ready templates (Vercel labs, Copilot ecosystem)"
+      >
         <div class="slide-header">
           <span class="topic-tag">
             <svg class="inline-star" width="14" height="14" fill="currentColor">
@@ -3749,20 +4528,24 @@ Design and evaluate presentations that communicate effectively...
           </span>
           <span>Slide 12 / 14</span>
         </div>
+        <h3 class="assertion">
+          Leverage community-driven registries and enterprise templates to
+          deploy agent skills instantly.
+        </h3>
         <div class="evidence">
-          <div class="market-dashboard">
-            <div class="market-column">
-              <h3>
+          <div class="dashboard-grid">
+            <!-- Registry Hubs -->
+            <div class="dashboard-card">
+              <h4 class="dashboard-card-title">
                 <svg
                   viewBox="0 0 24 24"
-                  width="20"
-                  height="20"
+                  width="22"
+                  height="22"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="accent-color"
                 >
                   <path
                     d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"
@@ -3770,209 +4553,128 @@ Design and evaluate presentations that communicate effectively...
                   <line x1="9" y1="18" x2="15" y2="18" />
                   <line x1="10" y1="22" x2="14" y2="22" />
                 </svg>
-                Registry hubs
-              </h3>
-              <ul class="list-unstyled">
-                <li>
-                  <svg
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="accent-icon"
-                  >
-                    <use href="#icon-check" />
-                  </svg>
-                  <a href="https://www.skills.sh/">skills.sh</a>
-                </li>
-                <li>
-                  <svg
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="accent-icon"
-                  >
-                    <use href="#icon-check" />
-                  </svg>
-                  <a href="https://skillsmp.com/">skillsmp.com</a>
-                </li>
-                <li>
-                  <svg
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="accent-icon"
-                  >
-                    <use href="#icon-check" />
-                  </svg>
-                  <a
-                    href="https://github.com/sickn33/antigravity-awesome-skills"
-                    >antigravity-awesome-skills</a
-                  >
-                </li>
-                <li>
-                  <svg
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="accent-icon"
-                  >
-                    <use href="#icon-check" />
-                  </svg>
-                  <a href="https://github.com/affaan-m/everything-claude-code"
-                    >everything-claude-code</a
-                  >
-                </li>
-                <li>
-                  <svg
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="accent-icon"
-                  >
-                    <use href="#icon-check" />
-                  </svg>
-                  <a href="https://github.com/alirezarezvani/claude-skills"
-                    >claude-skills</a
-                  >
-                </li>
-              </ul>
+                Registry Hubs
+              </h4>
+              <div class="dashboard-list">
+                <div class="dashboard-item">
+                  <div class="dashboard-item-header">
+                    <a href="https://www.skills.sh/" class="dashboard-item-link"
+                      >skills.sh</a
+                    >
+                    <span class="dashboard-item-tag method">Registry</span>
+                  </div>
+                  <p class="dashboard-item-desc">
+                    The central community index for sharing, executing, and
+                    versioning MCP-compatible skills.
+                  </p>
+                </div>
+                <div class="dashboard-item">
+                  <div class="dashboard-item-header">
+                    <a href="https://skillsmp.com/" class="dashboard-item-link"
+                      >skillsmp.com</a
+                    >
+                    <span class="dashboard-item-tag method">Marketplace</span>
+                  </div>
+                  <p class="dashboard-item-desc">
+                    Commercial and open skill marketplace featuring vetted tool
+                    integrations and workflow engines.
+                  </p>
+                </div>
+                <div class="dashboard-item">
+                  <div class="dashboard-item-header">
+                    <a
+                      href="https://github.com/sickn33/antigravity-awesome-skills"
+                      class="dashboard-item-link"
+                      >Awesome Skills</a
+                    >
+                    <span class="dashboard-item-tag method">Curated List</span>
+                  </div>
+                  <p class="dashboard-item-desc">
+                    Curated catalog of community-developed skills, prompts, and
+                    automation workflows.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div class="market-column">
-              <h3>
+            <!-- Enterprise Templates -->
+            <div class="dashboard-card accent-dashboard">
+              <h4 class="dashboard-card-title">
                 <svg
                   viewBox="0 0 24 24"
-                  width="20"
-                  height="20"
+                  width="22"
+                  height="22"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="accent-color"
                 >
                   <circle cx="12" cy="12" r="3" />
                   <path
                     d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
                   />
                 </svg>
-                Enterprise Kits
-              </h3>
-              <ul class="list-unstyled">
-                <li>
-                  <svg
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="accent-icon"
-                  >
-                    <use href="#icon-check" />
-                  </svg>
-                  <a href="https://github.com/vercel-labs/agent-skills"
-                    >vercel-labs/agent-skills</a
-                  >
-                </li>
-                <li>
-                  <svg
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="accent-icon"
-                  >
-                    <use href="#icon-check" />
-                  </svg>
-                  <a href="https://github.com/github/awesome-copilot"
-                    >awesome-copilot</a
-                  >
-                </li>
-                <li>
-                  <svg
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="accent-icon"
-                  >
-                    <use href="#icon-check" />
-                  </svg>
-                  <a
-                    href="https://github.com/K-Dense-AI/scientific-agent-skills"
-                    >scientific-skills</a
-                  >
-                </li>
-                <li>
-                  <svg
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="accent-icon"
-                  >
-                    <use href="#icon-check" />
-                  </svg>
-                  <a href="https://github.com/wshobson/agents"
-                    >wshobson/agents</a
-                  >
-                </li>
-                <li>
-                  <svg
-                    width="14"
-                    height="14"
-                    fill="none"
-                    stroke="var(--accent)"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="accent-icon"
-                  >
-                    <use href="#icon-check" />
-                  </svg>
-                  <a href="https://github.com/garrytan/gstack"
-                    >garrytan/gstack</a
-                  >
-                </li>
-              </ul>
+                Enterprise Blueprints
+              </h4>
+              <div class="dashboard-list">
+                <div class="dashboard-item">
+                  <div class="dashboard-item-header">
+                    <a
+                      href="https://github.com/vercel-labs/agent-skills"
+                      class="dashboard-item-link"
+                      >vercel-labs/agent-skills</a
+                    >
+                    <span class="dashboard-item-tag skill">Templates</span>
+                  </div>
+                  <p class="dashboard-item-desc">
+                    Next.js-ready agent templates equipped with Vercel AI SDK
+                    wrappers and sandbox runners.
+                  </p>
+                </div>
+                <div class="dashboard-item">
+                  <div class="dashboard-item-header">
+                    <a
+                      href="https://github.com/github/awesome-copilot"
+                      class="dashboard-item-link"
+                      >awesome-copilot</a
+                    >
+                    <span class="dashboard-item-tag skill">Blueprints</span>
+                  </div>
+                  <p class="dashboard-item-desc">
+                    Repository of custom Copilot Extensions and team
+                    productivity skills.
+                  </p>
+                </div>
+                <div class="dashboard-item">
+                  <div class="dashboard-item-header">
+                    <a
+                      href="https://github.com/garrytan/gstack"
+                      class="dashboard-item-link"
+                      >garrytan/gstack</a
+                    >
+                    <span class="dashboard-item-tag skill">Deployment</span>
+                  </div>
+                  <p class="dashboard-item-desc">
+                    Production-grade stack orchestration templates for
+                    self-hosting agent squads.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Slide 13: Shifting Bottlenecks -->
-      <div class="slide" id="slide-13">
+      <div
+        class="slide"
+        id="slide-13"
+        data-notes-timing="2"
+        data-notes-cumulative="29"
+        data-notes-priority="standard"
+        data-notes-points="Show how AI supercharges Level 1 (Operational/Coding) bottlenecks;The bottleneck immediately shifts upward to Level 2 (Coordination/Product approval/Ops);Engineering team velocity becomes limited by integration and QA speed, not coding speed"
+      >
         <div class="slide-header">
           <span class="topic-tag">
             <svg class="inline-star" width="14" height="14" fill="currentColor">
@@ -4069,7 +4771,14 @@ Design and evaluate presentations that communicate effectively...
       </div>
 
       <!-- Slide 14: Q&A Closing -->
-      <div class="slide slide-centered" id="slide-14">
+      <div
+        class="slide slide-centered"
+        id="slide-14"
+        data-notes-timing="1"
+        data-notes-cumulative="30"
+        data-notes-priority="essential"
+        data-notes-points="Summarize key takeaway: engineer your context, harness, and team workflows;Open the floor for questions;Share references and slides URL"
+      >
         <div class="slide-header">
           <span class="topic-tag">
             <svg class="inline-star" width="14" height="14" fill="currentColor">
@@ -4081,7 +4790,29 @@ Design and evaluate presentations that communicate effectively...
         </div>
         <div class="evidence qa-evidence">
           <h2>Q&A</h2>
-          <p>Thank you for attending.</p>
+          <div class="qa-portal">
+            <span class="qa-portal-label"
+              >For further learning and deep resources:</span
+            >
+            <a
+              href="https://github.com/sidisrikk/adopt-agent-coding-early-2026"
+              class="qa-portal-link"
+              target="_blank"
+            >
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <use href="#icon-github" />
+              </svg>
+              sidisrikk/adopt-agent-coding-early-2026
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -4090,6 +4821,7 @@ Design and evaluate presentations that communicate effectively...
     <script>
       let currentSlide = 1;
       const totalSlides = 14;
+      let sorterGridBuilt = false;
 
       // Slide 3 Interactive Hub Setup
       function setupSlide3Interactions() {
@@ -4123,31 +4855,185 @@ Design and evaluate presentations that communicate effectively...
         });
       }
 
+      // Slide 6 Tactic Card Filter Tabs
+      function filterTactics(group) {
+        // Update active class on tab buttons
+        const buttons = document.querySelectorAll(".tactic-tab-btn");
+        buttons.forEach((btn) => {
+          if (btn.getAttribute("onclick").includes(`'${group}'`)) {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+
+        // Filter cards
+        const cards = document.querySelectorAll(".tactic-card");
+        cards.forEach((card) => {
+          const cardGroup = card.getAttribute("data-tactic-group");
+          if (group === "all" || cardGroup === group) {
+            card.classList.remove("inactive");
+          } else {
+            card.classList.add("inactive");
+          }
+        });
+      }
+
+      // Speaker Notes Toggle
+      function toggleSpeakerNotes() {
+        const sidebar = document.getElementById("notes-sidebar");
+        const deckContainer = document.getElementById("deck-container");
+        if (!sidebar) return;
+
+        sidebar.classList.toggle("active");
+        if (sidebar.classList.contains("active")) {
+          deckContainer.classList.add("notes-active");
+          document.getElementById("btn-notes").classList.add("btn-primary");
+        } else {
+          deckContainer.classList.remove("notes-active");
+          document.getElementById("btn-notes").classList.remove("btn-primary");
+        }
+
+        // Relayout scroll target
+        setTimeout(() => {
+          jumpToSlide(currentSlide, "instant");
+        }, 300);
+      }
+
+      // Slide Sorter Toggle
+      function toggleSlideSorter() {
+        const sorter = document.getElementById("slide-sorter-overlay");
+        if (!sorter) return;
+
+        sorter.classList.toggle("active");
+        if (sorter.classList.contains("active")) {
+          document.getElementById("btn-sorter").classList.add("btn-primary");
+          buildSlideSorterGrid();
+        } else {
+          document.getElementById("btn-sorter").classList.remove("btn-primary");
+        }
+      }
+
+      // Build Slide Sorter Grid dynamically
+      function buildSlideSorterGrid() {
+        if (sorterGridBuilt) {
+          // Update current state indicator classes
+          const cards = document.querySelectorAll(".sorter-card");
+          cards.forEach((card) => {
+            const num = parseInt(card.getAttribute("data-slide-num"));
+            if (num === currentSlide) {
+              card.classList.add("current");
+            } else {
+              card.classList.remove("current");
+            }
+          });
+          return;
+        }
+
+        const grid = document.getElementById("slide-sorter-grid");
+        if (!grid) return;
+        grid.innerHTML = "";
+
+        const slides = document.querySelectorAll(".slide");
+        slides.forEach((slide) => {
+          const slideId = slide.id;
+          const slideNum = parseInt(slideId.replace("slide-", ""));
+          if (isNaN(slideNum)) return;
+
+          // Extract Title
+          let title = "Slide";
+          const assertionEl = slide.querySelector("h3.assertion");
+          const h1El = slide.querySelector("h1");
+          if (assertionEl) {
+            title = assertionEl.textContent.trim();
+          } else if (h1El) {
+            title = h1El.textContent.trim();
+          } else {
+            // Check slide-header topic-tag
+            const tagEl = slide.querySelector(".topic-tag");
+            if (tagEl) {
+              title = tagEl.textContent.trim();
+            }
+          }
+
+          // Truncate title
+          if (title.length > 80) {
+            title = title.substring(0, 77) + "...";
+          }
+
+          // Extract Section Topic Tag
+          let tag = "Strategic Overview";
+          const topicTagEl = slide.querySelector(".topic-tag");
+          if (topicTagEl) {
+            tag = topicTagEl.textContent.trim();
+          }
+
+          const card = document.createElement("div");
+          card.className = `sorter-card ${slideNum === currentSlide ? "current" : ""}`;
+          card.setAttribute("data-slide-num", slideNum);
+          card.onclick = () => {
+            jumpToSlide(slideNum);
+            toggleSlideSorter();
+          };
+
+          card.innerHTML = `
+            <div>
+              <div class="sorter-card-header">${tag}</div>
+              <h4 class="sorter-card-title">${title}</h4>
+            </div>
+            <div class="sorter-card-footer">Slide ${slideNum.toString().padStart(2, "0")}</div>
+          `;
+          grid.appendChild(card);
+        });
+
+        sorterGridBuilt = true;
+      }
+
       // Set Up Listeners on Window Load
       window.onload = function () {
         updateProgress();
         setupTouchEvents();
         setupSlide3Interactions();
+        setupTrackerClicks();
       };
+
+      // Set Up Click handlers on progress tracker milestones
+      function setupTrackerClicks() {
+        const steps = document.querySelectorAll(".tracker-step");
+        steps.forEach((step) => {
+          step.onclick = () => {
+            const target = parseInt(step.getAttribute("data-target"));
+            if (target) {
+              jumpToSlide(target);
+            }
+          };
+        });
+      }
 
       // Navigate Slide Deck
       function navigateSlide(direction) {
         let newSlide = currentSlide + direction;
         if (newSlide >= 1 && newSlide <= totalSlides) {
-          currentSlide = newSlide;
-          const targetSlide = document.getElementById(`slide-${currentSlide}`);
-          if (targetSlide) {
-            targetSlide.scrollIntoView({
-              behavior: "smooth",
-              block: "center",
-            });
-          }
-          updateProgress();
+          jumpToSlide(newSlide);
         }
       }
 
-      // Update State Indicators, Button Toggles
+      // Jump directly to specific slide
+      function jumpToSlide(slideNum, behavior = "smooth") {
+        currentSlide = slideNum;
+        const targetSlide = document.getElementById(`slide-${currentSlide}`);
+        if (targetSlide) {
+          targetSlide.scrollIntoView({
+            behavior: behavior,
+            block: "center",
+          });
+        }
+        updateProgress();
+      }
+
+      // Update State Indicators, Button Toggles, Tracker active state, and Presenter Notes
       function updateProgress() {
+        // Update Counter
         const slideCurrEl = document.getElementById("slide-curr");
         if (slideCurrEl) {
           slideCurrEl.textContent = currentSlide.toString().padStart(2, "0");
@@ -4155,9 +5041,64 @@ Design and evaluate presentations that communicate effectively...
         document.getElementById("btn-prev").disabled = currentSlide === 1;
         document.getElementById("btn-next").disabled =
           currentSlide === totalSlides;
+
+        // Update Tracker Milestones active state
+        const steps = document.querySelectorAll(".tracker-step");
+        steps.forEach((step) => {
+          const target = parseInt(step.getAttribute("data-target"));
+          const nextTarget = getNextTrackerTarget(step);
+          if (currentSlide >= target && currentSlide < nextTarget) {
+            step.classList.add("active");
+          } else {
+            step.classList.remove("active");
+          }
+        });
+
+        // Update Presenter Notes
+        const activeSlide = document.getElementById(`slide-${currentSlide}`);
+        if (activeSlide) {
+          const timing = activeSlide.getAttribute("data-notes-timing") || "1";
+          const cumulative =
+            activeSlide.getAttribute("data-notes-cumulative") || "1";
+          const priority =
+            activeSlide.getAttribute("data-notes-priority") || "standard";
+          const pointsStr =
+            activeSlide.getAttribute("data-notes-points") ||
+            "No notes available.";
+
+          // Update Timing UI
+          document.getElementById("notes-timing").textContent = `${timing} min`;
+          document.getElementById("notes-cumulative").textContent =
+            `${cumulative} min`;
+
+          // Update Priority Badge UI
+          const priorityEl = document.getElementById("notes-priority");
+          priorityEl.textContent = priority;
+          priorityEl.className = `notes-priority-badge ${priority}`;
+
+          // Update Talking Points UI
+          const pointsList = document.getElementById("notes-points");
+          pointsList.innerHTML = "";
+          pointsStr.split(";").forEach((pt) => {
+            if (pt.trim()) {
+              const li = document.createElement("li");
+              li.textContent = pt.trim();
+              pointsList.appendChild(li);
+            }
+          });
+        }
       }
 
-      // Keyboard Controls (Left/Right Arrows, Space)
+      function getNextTrackerTarget(step) {
+        const steps = Array.from(document.querySelectorAll(".tracker-step"));
+        const idx = steps.indexOf(step);
+        if (idx === steps.length - 1) {
+          return totalSlides + 1; // last step covers everything up to end
+        }
+        return parseInt(steps[idx + 1].getAttribute("data-target"));
+      }
+
+      // Keyboard Controls (Left/Right Arrows, Space, and Special presentation keys)
       document.addEventListener("keydown", function (event) {
         if (event.key === "ArrowRight" || event.key === " ") {
           event.preventDefault();
@@ -4165,6 +5106,18 @@ Design and evaluate presentations that communicate effectively...
         } else if (event.key === "ArrowLeft") {
           event.preventDefault();
           navigateSlide(-1);
+        } else if (event.key.toLowerCase() === "n") {
+          event.preventDefault();
+          toggleSpeakerNotes();
+        } else if (event.key.toLowerCase() === "o") {
+          event.preventDefault();
+          toggleSlideSorter();
+        } else if (event.key === "Escape") {
+          const sorter = document.getElementById("slide-sorter-overlay");
+          if (sorter && sorter.classList.contains("active")) {
+            event.preventDefault();
+            toggleSlideSorter();
+          }
         }
       });
 
@@ -4193,13 +5146,12 @@ Design and evaluate presentations that communicate effectively...
         );
       }
 
+      // Swipe Handler
       function handleSwipe() {
         const swipeThreshold = 50; // pixels
         if (touchStartX - touchEndX > swipeThreshold) {
-          // Swipe Left -> next slide
           navigateSlide(1);
         } else if (touchEndX - touchStartX > swipeThreshold) {
-          // Swipe Right -> previous slide
           navigateSlide(-1);
         }
       }
