@@ -48,6 +48,7 @@ This document organizes key resources for agentic coding, AI skills, and collabo
 - [Scientific Agent Skills](https://github.com/K-Dense-AI/scientific-agent-skills)
 - [Agents by wshobson](https://github.com/wshobson/agents)
 - [GStack by garrytan](https://github.com/garrytan/gstack)
+- [Awesome Agent Skills](https://github.com/VoltAgent/awesome-agent-skills)
 
 ## 8. AI SDLC (Software Development Life Cycle)
 

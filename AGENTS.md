@@ -22,6 +22,7 @@ Open it directly in a browser. Needs internet access for Google Fonts (`Lora`, `
 | `code_architecture/`                         | Architecture reference docs (React, NestJS, file-level) |
 | `intent-driven-development/`                 | Supplementary concept material                          |
 | `resources.md`                               | External references                                     |
+| `scripts/`                                   | Python utility scripts for presentation editing         |
 | `scripts idea.md`                            | Ideas for potential demo scripts                        |
 
 ## Skills
